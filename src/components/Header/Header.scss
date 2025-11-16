@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header {
+    // background-color: #1a1a1a;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    // border: solid;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    nav{
+        width: 100%;
+    }
+    
+    ul {
+        // border: solid;
+        display: flex;
+        justify-content: space-evenly;
+
+    }
+    li {
+        list-style: none;
+         transition: all 0.3s ease;
+         &:hover {
+            color: #d4af37;
+
+        }
+
+    }
+    a {
+        // color: 
+        text-decoration: none;
+        color: #1a1a1a;
+    }
+}

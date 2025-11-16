@@ -1,17 +1,18 @@
 import Header from "./components/Header/Header.jsx";
-import GlobalStyle from './styles/Globalstyle.jsx';
+// import GlobalStyle from './styles/Globalstyle.jsx';
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home.jsx';
 import Looks from './pages/Looks.jsx';
-import Lancamentos from './pages/Lancamentos.jsx';
+import Lancamentos from './components/Lancamentos/Lancamentos.jsx';
 import Novidades from './pages/Novidades.jsx';
 import Blackfriday from './pages/Blackfriday.jsx';
 
 export default function App() {
   return (
     <>
-      <GlobalStyle />
+      {/* <GlobalStyle /> */}
       <Header />
+      <Lancamentos />
       <h1>L'Oréal</h1>
       <Routes>
         <Route path="/" element={<Home />} />
