@@ -1,6 +1,6 @@
 import "./Header.scss";
 import passoia from "../../assets/passoia.png";
-//kleber fez import logo from "./"
+//kleber fez import logo from "./" - l minusculo
 import { Link } from 'react-router-dom'
 
 export default function Header () {

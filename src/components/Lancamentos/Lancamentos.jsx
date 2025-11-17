@@ -1,23 +1,76 @@
-// import "./Lancamentos.scss";
+import "./Lancamentos.scss";
 import { useState } from "react";
-import azul from "../../assets/azul.png";
-import vermelho from "../../assets/vermelho.png";
-import base from "../../assets/base.png";
-import marrom from "../../assets/marrom.png";
+// (color swatches use CSS colors now)
+import rosto from "../../assets/rosto.png";
+import avaliacoes from "../../assets/avaliacoes.png";
+import thumb1 from "../../assets/kit_3_batom_em_bala_oceane_edition_1 1.png";
+import thumb2 from "../../assets/kit_batom_liquido_vermelho_batom_liquido_nude_batom_liquido_rosa_oceane_edition_1 1.png";
+import thumb3 from "../../assets/image-5f98509bd4794faf9bb619ce30ac88f7 1.png";
 
 export default function Lancamentos() {
-  const [cor, setCor] = useState(vermelho);
-  //criamos um estado pra guardar o batom vermelho
+  const swatches = [
+    { color: '#BFB8E8', key: 'lavender' },
+    { color: '#E84B3A', key: 'red' },
+    { color: '#6E2626', key: 'maroon' },
+    { color: '#E08976', key: 'coral' }
+  ];
+  const thumbs = [thumb1, thumb2, thumb3];
+  const [mainImage, setMainImage] = useState(rosto);
+  const [selectedColor, setSelectedColor] = useState(swatches[0].color);
 
   return (
-    <section>
+    <section className="Lancamentos-container">
       <h1>Aproveite os Lançamentos</h1>
-      <p>Conheça as últimas novidades e coleções em primeira mão.</p>
-      <img src={cor} alt="" />
-      <button onClick={() => setCor(vermelho)}>Vermelho</button>
-      <button onClick={() => setCor(azul)}>Azul</button>
-      <button onClick={() => setCor(base)}>Base</button>
-      <button onClick={() => setCor(marrom)}>Marrom</button>
+
+      <div className="lancamentos-grid">
+        <div className="thumbs">
+          {thumbs.map((t, i) => (
+            <div className="thumb-box" key={i} onClick={() => setMainImage(t)}>
+              <img src={t} alt={`thumb-${i}`} />
+            </div>
+          ))}
+        </div>
+
+        <div className="main-image">
+          <div className="frame">
+            <button className="wishlist" aria-label="Adicionar aos favoritos">♡</button>
+            <img src={mainImage} alt="Produto principal" />
+          </div>
+        </div>
+
+        <aside className="details">
+          <div className="rating">
+            <img src={avaliacoes} alt="Avaliações" />
+          </div>
+          <h2>Matte Premium</h2>
+          <small style={{ display: 'block', marginTop: '.25rem' }}>Cores disponíveis</small>
+          <div className="colors">
+            {swatches.map((s, i) => (
+              <div
+                key={s.key}
+                className="swatch"
+                style={{
+                  background: s.color,
+                  border: s.color === selectedColor ? '3px solid #d4af37' : '2px solid rgba(0,0,0,0.06)'
+                }}
+                onClick={() => setSelectedColor(s.color)}
+                title={`Cor ${i + 1}`}
+              />
+            ))}
+          </div>
+
+          <div className="descricao">
+            <h4>Descrição</h4>
+            <p>
+              O Batom Matte possui uma fórmula inovadora desenvolvida para entregar o
+              máximo de cor na primeira aplicação com um desliz suave e macio. Tem
+              acabamento matte aveludado e manteiga de manga que ajuda a hidratar e a
+              proteger os lábios contra ressecamento. Ajuda na hidratação dos lábios,
+              textura fina e macia que não pesa nos lábios.
+            </p>
+          </div>
+        </aside>
+      </div>
     </section>
   );
 }
