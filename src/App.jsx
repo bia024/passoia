@@ -13,8 +13,6 @@ export default function App() {
     <>
       {/* <GlobalStyle /> */}
       <Header />
-      <Lancamentos />
-      <h1>L'Oréal</h1>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/looks" element={<Looks />} />

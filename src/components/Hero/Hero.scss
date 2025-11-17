@@ -1,0 +1,71 @@
+.hero{
+  position:relative;
+  display:flex;
+  align-items:center;
+  min-height:60vh;
+  background-size:cover;
+  background-position:center;
+  color:#fff;
+}
+
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.65) 100%);
+}
+
+.hero-inner{
+  position:relative;
+  z-index:2;
+  max-width:1100px;
+  margin:0 auto;
+  padding:48px 16px;
+  text-align:left;
+}
+
+.hero-title{
+  font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  font-size: clamp(28px, 6vw, 56px);
+  margin:0 0 12px 0;
+  line-height:1.02;
+  font-weight:700;
+}
+
+.hero-sub{
+  font-size: clamp(14px, 2.2vw, 18px);
+  color: rgba(255,255,255,0.92);
+  margin:0 0 20px 0;
+}
+
+.hero-ctas{
+  display:flex;
+  gap:12px;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:12px 18px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:600;
+}
+
+.btn-primary{
+  background:#b8860b; /* warm gold */
+  color:#111;
+}
+
+.btn-outline{
+  border:2px solid rgba(255,255,255,0.85);
+  color:#fff;
+  background:transparent;
+}
+
+@media (max-width: 800px){
+  .hero-inner{ padding:36px 16px; }
+  .hero-title{ text-align:center; }
+  .hero-sub{ text-align:center; }
+  .hero-ctas{ justify-content:center; }
+}
