@@ -1,6 +1,5 @@
 import "./Lancamentos.scss";
 import { useState } from "react";
-// (color swatches use CSS colors now)
 import rosto from "../../assets/rosto.png";
 import avaliacoes from "../../assets/avaliacoes.png";
 import thumb1 from '../../assets/kit3Batons.png';

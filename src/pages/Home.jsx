@@ -1,7 +1,6 @@
 import React from 'react';
 import Hero from '../components/Hero/Hero.jsx';
 import './Home.scss';
-
 import prod1 from '../assets/kit3Batons.png';
 import prod2 from '../assets/kitBatomvermelhoNudeRosa.png';
 import prod3 from '../assets/kitGloss.png';

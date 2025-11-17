@@ -20,7 +20,6 @@
         align-items: stretch;
     }
 
-    /* left thumbnails */
     .thumbs{
         display: flex;
         flex-direction: column;
@@ -50,12 +49,11 @@
         img:hover{ transform: translateY(-4px); box-shadow: 0 6px 18px rgba(0,0,0,0.12); }
     }
 
-    /* main image */
     .main-image{
         display:flex;
         justify-content:center;
         align-items:center;
-        background: #f6f4f8; /* pale background behind image */
+        background: #f6f4f8;
         padding: 1.25rem;
         display: flex;
         align-items: center;
@@ -70,7 +68,6 @@
         }
     }
 
-    /* details card */
     .details{
         background: #fff;
         padding: 1.5rem 1.75rem;
@@ -117,7 +114,6 @@
             .details{ grid-column: 1 / -1; margin-top:1.5rem }
         }
 
-        /* vertical divider between main image and details */
         .details::before{
             content: '';
             position: absolute;
