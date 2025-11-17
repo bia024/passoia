@@ -29,13 +29,17 @@
 // }
 
 import "./Looks.scss";
+import labios from "../../assets/labios.png";
+import olhos from "../../assets/olhos.jpg";
+import rosto from "../../assets/rosto.png";
+import tendencia from "../../assets/tendencia.png";
 
 export default function Looks() {  
   const items = [
-    { img: "/src/assets/labios.png", titulo: "LÁBIOS" },
-    { img: "/src/assets/olhos.jpg", titulo: "OLHOS" },
-    { img: "/src/assets/rosto.png", titulo: "ROSTO" },
-    { img: "/src/assets/tendencia.png", titulo: "TENDÊNCIA" }
+    { img: labios, titulo: "LÁBIOS" },
+    { img: olhos, titulo: "OLHOS" },
+    { img: rosto, titulo: "ROSTO" },
+    { img: tendencia, titulo: "TENDÊNCIA" }
   ];
 
   return (

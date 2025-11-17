@@ -3,9 +3,9 @@ import { useState } from "react";
 // (color swatches use CSS colors now)
 import rosto from "../../assets/rosto.png";
 import avaliacoes from "../../assets/avaliacoes.png";
-import thumb1 from "../../assets/kit_3_batom_em_bala_oceane_edition_1 1.png";
-import thumb2 from "../../assets/kit_batom_liquido_vermelho_batom_liquido_nude_batom_liquido_rosa_oceane_edition_1 1.png";
-import thumb3 from "../../assets/image-5f98509bd4794faf9bb619ce30ac88f7 1.png";
+import thumb1 from '../../assets/kit3Batons.png';
+import thumb2 from '../../assets/kitBatomvermelhoNudeRosa.png';
+import thumb3 from '../../assets/kitGloss.png';
 
 export default function Lancamentos() {
   const swatches = [

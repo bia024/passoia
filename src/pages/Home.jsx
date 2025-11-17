@@ -2,9 +2,9 @@ import React from 'react';
 import Hero from '../components/Hero/Hero.jsx';
 import './Home.scss';
 
-import prod1 from '../assets/kit_3_batom_em_bala_oceane_edition_1 1.png';
-import prod2 from '../assets/kit_batom_liquido_vermelho_batom_liquido_nude_batom_liquido_rosa_oceane_edition_1 1.png';
-import prod3 from '../assets/image-5f98509bd4794faf9bb619ce30ac88f7 1.png';
+import prod1 from '../assets/kit3Batons.png';
+import prod2 from '../assets/kitBatomvermelhoNudeRosa.png';
+import prod3 from '../assets/kitGloss.png';
 
 export default function Home() {
   return (

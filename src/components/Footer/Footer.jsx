@@ -9,7 +9,7 @@ import pix from '../../assets/pix.png';
 import ig from '../../assets/instagram.png';
 import fb from '../../assets/facebook.png';
 import yt from '../../assets/youtube.png';
-import tw from '../../assets/Twitter.png';
+import tw from '../../assets/twitter.png';
 
 export default function Footer(){
   return (

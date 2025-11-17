@@ -1,5 +1,4 @@
 import "./Novidades.scss";
-import BannerNovidades from "../Banner/NovidadesMake.jpg";
 
 export default function Novidades() {
   return (
@@ -7,7 +6,7 @@ export default function Novidades() {
       <h2>NOVIDADES PARA VOCÊ</h2>
 
       <div className="novidades-img">
-        <img src={BannerNovidades} alt="Novidades" />
+        <p>Seção de Novidades — em construção.</p>
       </div>
     </section>
   );
