@@ -1,6 +1,6 @@
 import React from 'react';
 import './Hero.scss';
-import heroImg from '../../assets/kitGloss.png';
+import heroImg from '../Banner/RevitaLift.png';
 
 export default function Hero(){
   return (
