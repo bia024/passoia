@@ -1,192 +1,162 @@
-# 💄 Passoia — Aplicativo de Beleza Inteligente  
-### *Beauty Experience Platform — Inspirado nos padrões de marcas como L’Oréal*
+# 📘 Passoia — Beauty Experience Platform (React + Vite)
 
-O **Passoia** é um aplicativo front-end desenvolvido com **React + Vite**, criado para simular a experiência de um portal digital de beleza moderno.  
-Ele apresenta páginas reais de um ecossistema beauty — como Looks, Lançamentos, Novidades e campanhas especiais — refletindo a estética e usabilidade esperadas por grandes marcas do setor.
+### A modern beauty-tech front-end project inspired by real digital ecosystems from global cosmetics brands.
 
-Este projeto foi desenvolvido com foco no **mercado de cosméticos, skincare, haircare e maquiagem (novidades em breve)**, apresentando um design leve, elegante e preparado para campanhas digitais.
+## ⭐ Overview
 
----
+Passoia is a front-end application built with React + Vite, designed to simulate the experience of a modern digital beauty platform.
+It includes realistic beauty pages — Looks, Launches, New Arrivals and Campaigns — inspired by the visual language and user experience of leading brands in the global beauty market.
 
-## ✨ Destaques do Projeto
+The project focuses on cosmetics, skincare, haircare, and makeup, offering an elegant and lightweight design suitable for promotions, storytelling, digital campaigns, and product discovery.
 
-- Experiência inspirada em plataformas de beleza premium  
-- Navegação fluida construída com **React Router**  
-- Componentização limpa e escalável  
-- Estrutura preparada para catálogos, campanhas e conteúdos  
-- Código organizado e de fácil expansão  
-- Design responsivo voltado ao público de beleza  
+## 🎯 Why This Project Appeals to L’Oréal and Beauty-Tech Companies
 
----
+L’Oréal’s Digital & Beauty Tech teams value developers who can deliver:
 
-## 🌺 Relevância para Empresas de Beleza
+High-performance, consumer-focused interfaces
 
-O projeto atende aos critérios observados em portais modernos de marcas como:
+Premium visual experiences
 
-**L’Oréal · Avon · Natura · O Boticário · Eudora · Sephora · Quem Disse, Berenice?**
+Accessibility aligned with global standards
 
-As características valorizadas incluem:
+Clean, scalable React architecture
 
-✔ UI elegante e consistente  
-✔ Paginação clara  
-✔ Espaços para catálogos e novidades  
-✔ Áreas para campanhas sazonais (ex.: Black Friday)  
-✔ Componentização e código modular  
-✔ Possibilidade de expansão para APIs reais  
+Beauty-oriented UI/UX thinking
 
----
+Responsiveness and brand-ready layouts
 
-## 🖥️ Funcionalidades Principais
+Passoia was created with these expectations in mind, mirroring the digital product quality used in major beauty brands worldwide.
 
-### 🏠 Home  
-Página inicial destacando conteúdos e navegação principal.
+## ✨ Features
 
-### 💋 Looks  
-Área dedicada à inspiração de maquiagem, tendências e estilos.
+Beauty-focused pages
 
-### 🌟 Lançamentos  
-Seção voltada às novidades de produtos, coleções e lançamentos.
+Looks
 
-### 🧴 Novidades  
-Conteúdos atualizados sobre beleza, campanhas e recomendações.
+Launches
 
-### 🖤 Black Friday  
-Página temática para campanhas promocionais especiais.
+New Arrivals
 
----
+Campaigns
 
-## 🧩 Estrutura do App
+Modern navigation with React Router
 
-```jsx
-import Header from "./components/Header/Header.jsx";
-import { Routes, Route } from 'react-router-dom';
-import Home from './pages/Home.jsx';
-import Looks from './components/Looks/Looks.jsx';
-import Lancamentos from './components/Lancamentos/Lancamentos.jsx';
-import Novidades from './components/Novidades/Novidades.jsx';
-import Blackfriday from './pages/Blackfriday.jsx';
-import Footer from './components/Footer/Footer.jsx';
+Clean SCSS styling
 
-export default function App() {
-  return (
-    <>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/looks" element={<Looks />} />
-        <Route path="/lancamentos" element={<Lancamentos />} />
-        <Route path="/novidades" element={<Novidades />} />
-        <Route path="/blackfriday" element={<Blackfriday />} />
-      </Routes>
-      <Footer />
-    </>
-  );
-}
+Luxury-inspired components
 
-Design inspirado em apps beauty (L’Oréal, Sephora, Lancôme).
+Smooth micro-animations
 
-Componentização clara e escalável.
+Premium visual identity
 
-SCSS modularizado por componente.
+## ♿ Professional Accessibility (A11y)
 
-Páginas dedicadas a eventos e campanhas (ex: Black Friday).
+Accessibility is a priority for global beauty companies, including L’Oréal.
+This project includes:
 
-Layout adaptável para mobile-first e experiências premium.
+Screen Reader with Web Speech API
 
-Navegação fluida com estrutura ideal para evoluir para um e-commerce real.
+Voice selection (male/female voices*)
 
-## Estrutura de Pastas
+Adjustable reading speed
 
-src/
-│
-├── assets/
-│   ├── avaliacoes.png
-│   ├── azul.png
-│   ├── base.png
-│   ├── batomMarrom.png
-│   ├── batomRosa.png
-│   ├── batomRoxo.png
-│   ├── batomVermelho.png
-│   ├── bolaazul.png
-│   ├── bolamarrom.png
-│   ├── bolamatte.png
-│   ├── bolavermelha.png
-│   ├── boleto.png
-│   ├── download.png
-│   ├── Ellipse 4 (1).png
-│   ├── Ellipse 6 (1).png
-│   ├── Ellipse 7 (1).png
-│   ├── facebook.png
-│   ├── instagram.png
-│   ├── kit3Batons.png
-│   ├── kitBatomvermelhoNudeRosa.png
-│   ├── kitGloss.png
-│   ├── L'Oréal.png
-│   ├── labios.png
-│   └── (demais imagens…)
-│
-├── components/
-│   ├── Footer/
-│   │   ├── Footer.jsx
-│   │   └── Footer.scss
-│   │
-│   ├── Header/
-│   │   ├── Header.jsx
-│   │   └── Header.scss
-│   │
-│   ├── Hero/
-│   │   ├── Hero.jsx
-│   │   └── Hero.scss
-│   │
-│   ├── Lançamentos/
-│   │   ├── Lançamentos.jsx
-│   │   ├── LançamentosSimple.jsx
-│   │   └── Lançamentos.scss
-│   │
-│   ├── Looks/
-│   │   ├── Looks.jsx
-│   │   └── Looks.scss
-│   │
-│   └── Novidades/
-│       ├── Novidades.jsx
-│       └── Novidades.scss
-│
-├── Main/
-│   └── Main.jsx
-│
-├── pages/
-│   ├── Blackfriday.jsx
-│   ├── Home.jsx
-│   └── Home.scss
-│
-├── styles/
-│   ├── Globalstyle.jsx
-│   ├── App.jsx
-│   └── main.jsx
-│
-├── index.html
-└── vite.config.js
+Read selected text
 
-##🔧 Tecnologias Utilizadas
+High-contrast mode
 
-React (Hooks)
+Keyboard-friendly navigation
+
+Focus management + focus trap
+
+Accessible floating panel with ARIA roles
+
+*The voice options depend on available voices in the user browser.
+
+## 🛠️ Tech Stack
+
+React (Hooks, Functional Components)
 
 Vite
 
-React Router DOM
-
-JavaScript
-
 SCSS
 
-Arquitetura modular de componentes
+React Router DOM
 
-ESLint
+Web Speech API
 
-git clone https://github.com/bia024/passoia.git
+LocalStorage for saving accessibility preferences
+
+Clean and modular architecture
+
+## 📁 Project Structure
+src/
+ ├── assets/
+ ├── components/
+ │   ├── Header/
+ │   ├── Footer/
+ │   ├── Acessibilidade/
+ │   ├── Banner/
+ │   └── Cards/
+ ├── pages/
+ │   ├── Looks/
+ │   ├── NewArrivals/
+ │   ├── Launches/
+ │   ├── Campaigns/
+ ├── App.jsx
+ └── main.jsx
+
+## 🚀 Installation & Usage
+git clone https://github.com/your-user/passoia.git
 cd passoia
 npm install
 npm run dev
 
-Acesse no navegador:
-http://localhost:5173
+## 🎨 Design Guidelines
+
+Luxury-inspired palette (black + gold)
+
+Clean, elegant typography
+
+Minimalist layout
+
+Soft zoom animations
+
+Beauty-industry visual standards
+
+Consistent spacing & hierarchy
+
+Optimized for both mobile and desktop
+
+## 🌐 Alignment with L’Oréal’s Beauty Tech Vision
+
+This project demonstrates skills relevant to global beauty-tech roles:
+
+Creating immersive digital beauty experiences
+
+Building scalable front-end architecture
+
+Understanding storytelling through UI
+
+Designing product discovery flows
+
+Implementing accessibility at a professional level
+
+Delivering brand-ready, marketing-friendly pages
+
+## 🧩 Purpose
+
+Passoia was developed as a portfolio piece optimized for the beauty and cosmetics industry, showcasing:
+
+React proficiency
+
+Aesthetic sensibility aligned with beauty brands
+
+Real accessibility implementation
+
+Modern front-end engineering
+
+Market relevance for companies like L’Oréal, Sephora, Estée Lauder, and others
+
+## 📄 License
+
+Open for personal use, study, and portfolio demonstration.
