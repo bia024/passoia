@@ -1,0 +1,16 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Lancamento {
+  id          Int      @id @default(autoincrement())
+  tipo        String
+  descricao   String
+  valor       Float
+  data        DateTime @default(now())
+}
