@@ -1,0 +1,100 @@
+/* src/components/Acessibilidade/ReaderControls.scss */
+.reader-controls-panel {
+  width: 360px;
+  background: linear-gradient(180deg, #0d0d0d, #0a0a0a);
+  color: #f8f5ee;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(212,169,55,0.14);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+.reader-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.reader-header h4 {
+  margin: 0;
+  color: #e6c14f;
+  letter-spacing: 0.4px;
+}
+.reader-close {
+  background: transparent;
+  border: none;
+  color: #f8f5ee;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.reader-row {
+  margin-bottom: 12px;
+  label {
+    display: block;
+    color: #ddd;
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+  select, input[type="range"] {
+    width: 100%;
+    background: #111;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.06);
+    padding: 8px;
+    border-radius: 8px;
+  }
+  .voice-note {
+    margin-top: 6px;
+    font-size: 12px;
+    color: #cfc7b3;
+  }
+}
+
+.reader-actions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin: 6px 0 12px 0;
+  button {
+    padding: 10px;
+    background: linear-gradient(180deg, #f1c40f, #d4af37);
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    color: #000;
+  }
+}
+
+.reader-foot {
+  text-align: center;
+  font-size: 12px;
+  color: #cfc7b3;
+}
+
+/* src/components/Acessibilidade/ReaderControls.scss */
+
+.reader-controls-panel {
+  width: 360px;
+  background: linear-gradient(180deg, #0d0d0d, #0a0a0a);
+  color: #f8f5ee;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(212,169,55,0.14);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+
+  /* 🔥 Faz aparecer no canto inferior direito */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999; /* Para garantir que fica na frente de tudo */
+}
+.reader-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
