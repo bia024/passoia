@@ -1,4 +1,3 @@
-// src/components/Acessibilidade/accessibilityLogger.js
 const LS_KEY = "accessibility_logs_v1";
 
 export function logEvent(event, detail = "", meta = {}) {

@@ -1,55 +1,46 @@
-import {
-  createUserService,
-  listUsersService,
-  getUserByIdService,
-  updateUserService,
-  deleteUserService
-} from "../services/user.service.js";
+import { prisma } from "../prisma/client.js";
+import bcrypt from "bcrypt";
 
-export const createUser = async (req, res) => {
+export async function registerUser(req, res) {
   try {
-    const user = await createUserService(req.body);
-    return res.status(201).json(user);
-  } catch (err) {
-    return res.status(400).json({ error: err.message });
-  }
-};
+    const { nome, email, senha } = req.body;
 
-export const listUsers = async (req, res) => {
-  try {
-    const users = await listUsersService();
-    return res.json(users);
-  } catch (err) {
-    return res.status(500).json({ error: err.message });
-  }
-};
+    if (!nome || !email || !senha) {
+      return res.status(400).json({ error: "Preencha todos os campos." });
+    }
 
-export const getUserById = async (req, res) => {
-  try {
-    const user = await getUserByIdService(Number(req.params.id));
-    return res.json(user);
-  } catch (err) {
-    return res.status(404).json({ error: err.message });
-  }
-};
+    // Verificar se o email já existe
+    const exists = await prisma.user.findUnique({
+      where: { email },
+    });
 
-export const updateUser = async (req, res) => {
-  try {
-    const updated = await updateUserService(
-      Number(req.params.id),
-      req.body
-    );
-    return res.json(updated);
-  } catch (err) {
-    return res.status(400).json({ error: err.message });
-  }
-};
+    if (exists) {
+      return res.status(409).json({ error: "E-mail já cadastrado." });
+    }
 
-export const deleteUser = async (req, res) => {
-  try {
-    await deleteUserService(Number(req.params.id));
-    return res.status(204).send();
-  } catch (err) {
-    return res.status(404).json({ error: err.message });
+    // Criptografar senha
+    const hashedPassword = await bcrypt.hash(senha, 10);
+
+    // Criar usuário
+    const user = await prisma.user.create({
+      data: {
+        nome,
+        email,
+        senha: hashedPassword,
+      },
+    });
+
+    return res.status(201).json({
+      message: "Cadastro realizado com sucesso!",
+      user: {
+        id: user.id,
+        nome: user.nome,
+        email: user.email,
+      },
+    });
+
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ error: "Erro ao criar usuário." });
   }
-};
+}

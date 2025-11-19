@@ -488,9 +488,8 @@ export default function Acessibilidade() {
   const firstFocusable = useRef(null);
   const lastFocusable = useRef(null);
 
-  /* --------------------------------------
-    Focus Trap + evitar scroll
-  -------------------------------------- */
+  /*     Focus Trap + evitar scroll
+  */
   useEffect(() => {
     if (open) {
       const focusable = panelRef.current
@@ -511,9 +510,8 @@ export default function Acessibilidade() {
     }
   }, [open]);
 
-  /* --------------------------------------
-    ESC para fechar + Tab Trap
-  -------------------------------------- */
+  /*     ESC para fechar + Tab Trap
+  */
   useEffect(() => {
     function handleKey(e) {
       if (!open) return;
@@ -543,9 +541,8 @@ export default function Acessibilidade() {
     return () => window.removeEventListener("keydown", handleKey);
   }, [open]);
 
-  /* --------------------------------------
-    Ações
-  -------------------------------------- */
+  /*     Ações
+  */
   const toggleMenu = () => {
     setOpen((prev) => {
       const next = !prev;

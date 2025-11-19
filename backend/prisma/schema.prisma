@@ -1,17 +1,19 @@
-// prisma/schema.prisma
-
-generator client {
-  provider = "prisma-client-js"
-}
-
+// Conexão com o banco SQLite
 datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
 
+// Cliente do Prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
+// Modelo dos usuários
 model User {
   id        Int      @id @default(autoincrement())
-  name      String
+  nome      String
   email     String   @unique
+  senha     String
   createdAt DateTime @default(now())
 }

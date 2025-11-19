@@ -1,4 +1,3 @@
-// src/components/Acessibilidade/useSpeech.js
 import { useEffect, useRef, useState } from "react";
 
 export default function useSpeech(defaultRate = 1) {

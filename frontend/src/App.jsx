@@ -8,7 +8,7 @@ import Lancamentos from "./components/Lancamentos/Lancamentos.jsx";
 import Novidades from "./components/Novidades/Novidades.jsx";
 import Blackfriday from "./pages/Blackfriday.jsx";
 import Footer from "./components/Footer/Footer.jsx";
-
+// import Cadastro from "../pages/Cadastro/Cadastro.jsx";
 import Acessibilidade from "./components/Acessibilidade/Acessibilidade.jsx";
 
 export default function App() {
@@ -34,22 +34,16 @@ export default function App() {
 
   return (
     <>
-      {/* Painel de acessibilidade */}
       <Acessibilidade />
-
-      {/* Cabeçalho */}
       <Header />
-
-      {/* Rotas */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/looks" element={<Looks />} />
         <Route path="/lancamentos" element={<Lancamentos />} />
         <Route path="/novidades" element={<Novidades />} />
         <Route path="/blackfriday" element={<Blackfriday />} />
+        {/* <Route path="/cadastro" element={<Cadastro />} /> */}
       </Routes>
-
-      {/* Rodapé */}
       <Footer />
     </>
   );

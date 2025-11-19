@@ -7,7 +7,12 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Rotas
+// Rotas de usuário
 app.use("/users", userRoutes);
+
+// Rota raiz
+app.get("/", (req, res) => {
+  res.json({ message: "API funcionando!" });
+});
 
 export default app;

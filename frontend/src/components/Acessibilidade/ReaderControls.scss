@@ -1,4 +1,3 @@
-/* src/components/Acessibilidade/ReaderControls.scss */
 .reader-controls-panel {
   width: 360px;
   background: linear-gradient(180deg, #0d0d0d, #0a0a0a);
@@ -74,8 +73,6 @@
   color: #cfc7b3;
 }
 
-/* src/components/Acessibilidade/ReaderControls.scss */
-
 .reader-controls-panel {
   width: 360px;
   background: linear-gradient(180deg, #0d0d0d, #0a0a0a);
@@ -86,11 +83,10 @@
   box-shadow: 0 10px 30px rgba(0,0,0,0.45);
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 
-  /* 🔥 Faz aparecer no canto inferior direito */
   position: fixed;
   bottom: 20px;
   right: 20px;
-  z-index: 9999; /* Para garantir que fica na frente de tudo */
+  z-index: 9999;
 }
 .reader-header {
   display: flex;
