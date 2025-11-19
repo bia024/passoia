@@ -1,0 +1,44 @@
+{
+  "info": {
+    "name": "passoia-backend",
+    "_postman_id": "e23d9a8a-2c43-4dbe-9bd4-7e93d4c6c122",
+    "description": "Coleção de testes do backend passoia",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Listar produtos",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/produtos",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["produtos"]
+        }
+      }
+    },
+    {
+      "name": "Criar produto",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nome\": \"Batom Vermelho\",\n  \"preco\": 29.90\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/produtos",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["produtos"]
+        }
+      }
+    }
+  ]
+}
