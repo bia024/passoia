@@ -10,7 +10,7 @@
 //   res.json({ message: "API funcionando!" });
 // });
 
-// // Exemplo de rota Prisma (teste)
+// rota Prisma (teste)
 // app.get("/users", async (req, res) => {
 //   const users = await prisma.user.findMany();
 //   res.json(users);

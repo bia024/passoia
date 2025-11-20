@@ -8,12 +8,16 @@ import Lancamentos from "./components/Lancamentos/Lancamentos.jsx";
 import Novidades from "./components/Novidades/Novidades.jsx";
 import Blackfriday from "./pages/Blackfriday.jsx";
 import Footer from "./components/Footer/Footer.jsx";
-// import Cadastro from "../pages/Cadastro/Cadastro.jsx";
+import Cadastro from "./pages/Cadastro/Cadastro.jsx";
 import Acessibilidade from "./components/Acessibilidade/Acessibilidade.jsx";
+import Login from "./pages/Login/Login.jsx";
+import Carrinho from "./pages/Carrinho/Carrinho.jsx";
+import Favoritos from "./pages/Favoritos/Favoritos.jsx";
+import ProtectedRoute from "./components/ProtectedRoute.jsx";
+// import ProdutoDetalhe from "./pages/ProdutoDetalhe/ProdutoDetalhe.jsx";
 
 export default function App() {
 
-  // Atalho: Shift + L lê todo o conteúdo da página
   useEffect(() => {
     const handleKey = (e) => {
       if (e.shiftKey && e.key === "L") {
@@ -42,7 +46,12 @@ export default function App() {
         <Route path="/lancamentos" element={<Lancamentos />} />
         <Route path="/novidades" element={<Novidades />} />
         <Route path="/blackfriday" element={<Blackfriday />} />
-        {/* <Route path="/cadastro" element={<Cadastro />} /> */}
+        <Route path="/cadastro" element={<Cadastro />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/carrinho" element={<Carrinho />} />
+        <Route element={<ProtectedRoute />}>
+          <Route path="/favoritos" element={<Favoritos />} />
+        </Route>
       </Routes>
       <Footer />
     </>

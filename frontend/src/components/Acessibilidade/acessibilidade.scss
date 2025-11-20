@@ -1,254 +1,4 @@
-// .acessibilidade-container {
-//   position: fixed;
-//   top: 10px;
-//   left: 10px;
-//   background: #ffffffee;
-//   padding: 10px;
-//   border-radius: 8px;
-//   display: flex;
-//   gap: 6px;
-//   z-index: 9999;
-//   backdrop-filter: blur(4px);
-//   border: 1px solid #ccc;
-
-//   button {
-//     padding: 6px 10px;
-//     background: #222;
-//     color: #fff;
-//     font-size: 0.9rem;
-//     border: none;
-//     cursor: pointer;
-//     border-radius: 6px;
-//     transition: all 0.2s ease;
-//   }
-
-//   button:hover {
-//     background: #000;
-//     transform: scale(1.05);
-//   }
-
-//   .ativo {
-//     background: #ffcc00 !important;
-//     color: #000 !important;
-//     font-weight: bold;
-//   }
-// }
-
-// /* Contraste alto */
-// body.alto-contraste {
-//   background: #000 !important;
-//   color: #fff !important;
-// }
-
-// body.alto-contraste img {
-//   filter: brightness(0.8) contrast(1.5);
-// }
-
-// body.alto-contraste a {
-//   color: #00ffff !important;
-// }
-
-// /* Ajuste global para zoom funcionar */
-// html {
-//   transition: font-size 0.2s ease;
-// }
-
-// .btn-vlibras-flutuante {
-//   position: fixed;
-//   bottom: 2rem;
-//   right: 2rem;
-//   padding: 1rem;
-//   border-radius: 50%;
-//   background: #0057ff;
-//   color: white;
-//   border: none;
-//   cursor: pointer;
-//   z-index: 9999;
-// }
-//manter por enquanto, tanto aqui quanto no jsx
-
-// .acess-btn {
-//   position: fixed;
-//   bottom: 20px;
-//   right: 20px;
-//   z-index: 9999;
-
-//   button {
-//     background: #222;
-//     color: #fff;
-//     border: none;
-//     padding: 12px;
-//     font-size: 22px;
-//     border-radius: 50%;
-//     cursor: pointer;
-//   }
-// }
-
-// .acess-modal {
-//   position: fixed;
-//   inset: 0;
-//   background: rgba(0, 0, 0, 0.6);
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   z-index: 9998;
-// }
-
-// .acess-content {
-//   background: #fff;
-//   padding: 25px;
-//   border-radius: 14px;
-//   width: 320px;
-//   position: relative;
-
-//   h2 {
-//     margin-bottom: 20px;
-//   }
-
-//   .fechar {
-//     position: absolute;
-//     top: 8px;
-//     right: 10px;
-//     background: transparent;
-//     border: none;
-//     font-size: 20px;
-//     cursor: pointer;
-//   }
-
-//   .grupo {
-//     display: flex;
-//     flex-direction: column;
-//     margin-bottom: 15px;
-
-//     button {
-//       margin: 6px 0;
-//       padding: 10px;
-//       border-radius: 8px;
-//       border: none;
-//       cursor: pointer;
-//       background: #eee;
-
-//       &:hover {
-//         background: #ddd;
-//       }
-//     }
-
-//     .ativo {
-//       background: black !important;
-//       color: white !important;
-//     }
-//   }
-// }
-
-// /* Alto contraste */
-// body.alto-contraste {
-//   filter: contrast(180%);
-// }
-
-
-
-//penultimo -> src/components/Acessibilidade/Acessibilidade.scss 
-
-// /* Palette */
-// $bg-dark: #0d0d0d;
-// $gold: #d4af37;
-// $gold-soft: #f1c40f;
-// $text-light: #f8f5ee;
-
-// .a11y-floating {
-//   position: fixed;
-//   right: 22px;
-//   bottom: 22px;
-//   z-index: 10000;
-// }
-
-// .a11y-button {
-//   width: 56px;
-//   height: 56px;
-//   border-radius: 50%;
-//   border: 2px solid $gold;
-//   background: $bg-dark;
-//   color: $gold-soft;
-//   font-size: 20px;
-//   cursor: pointer;
-//   box-shadow: 0 8px 30px rgba(0,0,0,0.45);
-//   transition: transform .18s ease, box-shadow .18s ease;
-// }
-// .a11y-button:hover { transform: scale(1.04); box-shadow: 0 12px 40px rgba(0,0,0,0.55); }
-
-// .a11y-backdrop {
-//   position: fixed;
-//   inset: 0;
-//   background: rgba(8,8,8,0.45);
-//   z-index: 9998;
-// }
-
-// .a11y-panel {
-//   position: fixed;
-//   right: 22px;
-//   bottom: 90px;
-//   width: 320px;
-//   background: linear-gradient(180deg, $bg-dark 0%, darken($bg-dark, 3%) 100%);
-//   color: $text-light;
-//   border: 1px solid rgba(212,175,55,0.18);
-//   border-radius: 12px;
-//   padding: 14px;
-//   z-index: 10001;
-//   box-shadow: 0 10px 40px rgba(0,0,0,0.6);
-// }
-
-// .a11y-panel-inner { position: relative; }
-
-// .a11y-close {
-//   position: absolute;
-//   right: 8px;
-//   top: 8px;
-//   background: transparent;
-//   border: none;
-//   color: $text-light;
-//   cursor: pointer;
-//   font-size: 16px;
-// }
-
-// .a11y-title {
-//   color: $gold-soft;
-//   margin: 0 0 10px 0;
-//   text-align: center;
-// }
-
-// .a11y-actions {
-//   display: grid;
-//   grid-template-columns: repeat(2, 1fr);
-//   gap: 8px;
-//   margin-bottom: 10px;
-
-//   button {
-//     background: linear-gradient(180deg, $gold-soft, $gold);
-//     color: #000;
-//     border: none;
-//     padding: 9px 10px;
-//     border-radius: 8px;
-//     cursor: pointer;
-//     font-weight: 700;
-//     transition: transform .12s ease;
-//   }
-
-//   button:hover { transform: translateY(-2px); }
-// }
-
-// .a11y-footer { text-align:center; font-size:12px; color:#cfc7b3; }
-
-// /* High contrast mode (less aggressive than pure invert) */
-// body.high-contrast {
-//   background: #000 !important;
-//   color: #fff !important;
-// }
-
-// /* Focus styles (important for keyboard users) */
-// *:focus {
-//   outline: 3px solid rgba(212,175,55,0.35);
-//   outline-offset: 2px;
-// }
+@use 'sass:color';
 
 $bg-dark: #0d0d0d;
 $gold: #d4af37;
@@ -257,8 +7,8 @@ $text-light: #f8f5ee;
 
 .a11y-floating {
   position: fixed;
-  right: 22px;
-  bottom: 22px;
+  right: 1.375rem;
+  bottom: 1.375rem;
   z-index: 10000;
   display: flex;
   align-items: center;
@@ -266,15 +16,15 @@ $text-light: #f8f5ee;
 }
 
 .a11y-button {
-  width: 70px;
-  height: 70px;
+  width: 4.375rem;
+  height: 4.375rem;
   border-radius: 50%;
-  border: 3px solid $gold;
+  border: 0.1875rem solid $gold;
   background: $bg-dark;
   color: $gold-soft;
-  font-size: 28px;
+  font-size: 1.75rem;
   cursor: pointer;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.45);
+  box-shadow: 0 0.5rem 1.875rem rgba(0,0,0,0.45);
   transition: transform .18s ease, box-shadow .18s ease;
   display: flex;
   align-items: center;
@@ -283,7 +33,7 @@ $text-light: #f8f5ee;
 
 .a11y-button:hover {
   transform: scale(1.06);
-  box-shadow: 0 12px 50px rgba(0,0,0,0.6);
+  box-shadow: 0 0.75rem 3.125rem rgba(0,0,0,0.6);
 }
 
 .a11y-backdrop {
@@ -295,20 +45,21 @@ $text-light: #f8f5ee;
 
 .a11y-panel {
   position: fixed;
-  right: 22px;
-  bottom: 100px;
-  width: 300px;
-  background: linear-gradient(180deg, $bg-dark 0%, darken($bg-dark, 3%) 100%);
+  right: 1.375rem;
+  bottom: 6.25rem;
+  width: 18.75rem;
+  background: linear-gradient(180deg, $bg-dark 0%, color.adjust($bg-dark, $lightness: -3%) 100%);
   color: $text-light;
-  border: 1px solid rgba(212,175,55,0.18);
-  border-radius: 14px;
-  padding: 18px 14px;
+  border: 0.0625rem solid rgba(212,175,55,0.18);
+  border-radius: 0.875rem;
+  padding: 1.125rem 0.875rem;
+  padding-bottom: 1.5rem;
   z-index: 10001;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+  box-shadow: 0 0.625rem 2.5rem rgba(0,0,0,0.6);
 
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 0.75rem;
   max-height: 65vh;
   overflow-y: auto;
 }
@@ -319,39 +70,44 @@ $text-light: #f8f5ee;
 
 .a11y-close {
   position: absolute;
-  right: 8px;
-  top: 8px;
+  right: 0.5rem;
+  top: 0.5rem;
   background: transparent;
   border: none;
-  color: $text-light;
+  color: #fff;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 1.125rem;
 }
 
 .a11y-title {
   color: $gold-soft;
   margin: 0;
-  margin-bottom: 16px;
+  margin-bottom: 1rem;
   text-align: center;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 1.125rem;
 }
 
 .a11y-actions {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
+  gap: 0.75rem;
 
   button {
     background: linear-gradient(180deg, $gold-soft, $gold);
     color: #000;
     border: none;
-    padding: 12px 10px;
-    border-radius: 10px;
+    padding: 0.75rem 0.625rem;
+    border-radius: 0.625rem;
     cursor: pointer;
     font-weight: 700;
-    font-size: 14px;
+    font-size: 0.875rem;
     transition: transform .12s ease;
+    /* Aprimoramento: Adicionando flex para alinhar ícone e texto */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
   }
 
   button:hover {
@@ -361,7 +117,7 @@ $text-light: #f8f5ee;
 
 .a11y-footer {
   text-align:center;
-  font-size:12px;
+  font-size: 0.75rem;
   color:#cfc7b3;
 }
 
@@ -369,9 +125,3 @@ body.high-contrast {
   background: #000 !important;
   color: #fff !important;
 }
-
-*:focus {
-  outline: 3px solid rgba(212,175,55,0.35);
-  outline-offset: 2px;
-}
-

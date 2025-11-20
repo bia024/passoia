@@ -1,20 +1,18 @@
 import { Router } from "express";
 import {
-  createUser,
   listUsers,
   getUserById,
   updateUser,
   deleteUser,
-  registerUser
+  registerUser,
+  loginUser,
 } from "../controllers/user.controller.js";
 
 const router = Router();
 
-// CADASTRO
 router.post("/cadastro", registerUser);
+router.post("/login", loginUser);
 
-// CRUD
-router.post("/", createUser);
 router.get("/", listUsers);
 router.get("/:id", getUserById);
 router.put("/:id", updateUser);

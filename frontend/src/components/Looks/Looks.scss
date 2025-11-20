@@ -7,16 +7,16 @@
 
     h1 {
         text-align: center;
-        margin-bottom: 20px;
+        margin-bottom: 1.25rem;
         font-size: 2rem;
     }
 
     #caixa-looks {
         width: 100%;
-        max-width: 1300px;
+        max-width: 81.25rem;
         display: flex;
         justify-content: space-between;
-        gap: 10px;
+        gap: 0.625rem;
 
         .produto {
             position: relative;
@@ -37,13 +37,13 @@
 
             h2 {
                 position: absolute;
-                left: 15px;
-                bottom: 15px;
+                left: 0.9375rem;
+                bottom: 0.9375rem;
                 margin: 0;
                 color: #ffffff;
                 font-size: 2rem;
                 font-weight: 700;
-                text-shadow: 0 0 12px rgba(0, 0, 0, 0.9);
+                text-shadow: 0 0 0.75rem rgba(0, 0, 0, 0.9);
                 z-index: 2;
                 transition: color 0.3s ease;
             }
@@ -66,17 +66,17 @@
 
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 56.25rem) { /* 900px */
         #caixa-looks {
             flex-wrap: wrap;
 
             .produto {
-                flex: 1 1 calc(50% - 10px);
+                flex: 1 1 calc(50% - 0.625rem);
             }
         }
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 37.5rem) { /* 600px */
         #caixa-looks {
             flex-direction: column;
 

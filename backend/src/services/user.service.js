@@ -1,17 +1,25 @@
 import { prisma } from "../prisma/client.js";
 
 export const createUserService = async (data) => {
-  const { name, email } = data;
+  const { nome, email, senha } = data;
 
   const userExists = await prisma.user.findUnique({
-    where: { email }
+    where: { email },
   });
 
   if (userExists) {
     throw new Error("Email já cadastrado.");
   }
 
-  return await prisma.user.create({ data: { name, email } });
+  const user = await prisma.user.create({
+    data: { nome, email, senha },
+    select: {
+      id: true,
+      nome: true,
+      email: true,
+    }
+  });
+  return user;
 };
 
 export const listUsersService = async () => {
@@ -35,4 +43,13 @@ export const updateUserService = async (id, data) => {
 
 export const deleteUserService = async (id) => {
   await prisma.user.delete({ where: { id } });
+};
+
+export const findUserByEmailService = async (email) => {
+  const user = await prisma.user.findUnique({ where: { email } });
+
+  if (!user) {
+    throw new Error("Usuário não encontrado.");
+  }
+  return user;
 };
