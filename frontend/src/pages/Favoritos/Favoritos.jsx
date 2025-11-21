@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
-import { useAuth } from '../../AuthContext.jsx';
-import { Link, useNavigate } from 'react-router-dom';
-import './Favoritos.scss';
+import { useAuth } from "../../AuthContext.jsx";
+import { Link, useNavigate } from "react-router-dom";
+import "./Favoritos.scss";
 
 export default function Favoritos() {
   const [wishlist, setWishlist] = useState([]);
@@ -13,17 +13,19 @@ export default function Favoritos() {
 
   useEffect(() => {
     if (!isAuthenticated) {
-      // se por um acaso o usuário não estiver autenticado, ele vai é redirecionar para o login
-      navigate('/login');
+      navigate("/login");
       return;
     }
 
     async function fetchWishlist() {
       try {
         const config = {
-          headers: { Authorization: `Bearer ${token}` }
+          headers: { Authorization: `Bearer ${token}` },
         };
-        const response = await axios.get('http://localhost:3000/wishlist', config);
+        const response = await axios.get(
+          "http://localhost:3000/wishlist",
+          config
+        );
         setWishlist(response.data);
       } catch (error) {
         console.error("Erro ao buscar favoritos:", error);
@@ -36,7 +38,11 @@ export default function Favoritos() {
   }, [isAuthenticated, token, navigate]);
 
   if (loading) {
-    return <div className="favoritos-container"><p>Carregando seus favoritos...</p></div>;
+    return (
+      <div className="favoritos-container">
+        <p>Carregando seus favoritos...</p>
+      </div>
+    );
   }
 
   return (
@@ -45,11 +51,13 @@ export default function Favoritos() {
       {wishlist.length === 0 ? (
         <div className="empty-wishlist">
           <p>Ainda não há nada aqui.</p>
-          <Link to="/lancamentos" className="btn-primary">Consultar Produtos</Link>
+          <Link to="/lancamentos" className="btn-primary">
+            Consultar Produtos
+          </Link>
         </div>
       ) : (
         <div className="favoritos-grid">
-          {wishlist.map(item => (
+          {wishlist.map((item) => (
             <div className="produto-card" key={item.produtoId}>
               <img src={item.produto.imagemUrl} alt={item.produto.nome} />
               <h3>{item.produto.nome}</h3>

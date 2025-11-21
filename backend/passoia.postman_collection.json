@@ -24,9 +24,7 @@
       "name": "Criar produto",
       "request": {
         "method": "POST",
-        "header": [
-          { "key": "Content-Type", "value": "application/json" }
-        ],
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
         "body": {
           "mode": "raw",
           "raw": "{\n  \"nome\": \"Batom Vermelho\",\n  \"preco\": 29.90\n}"

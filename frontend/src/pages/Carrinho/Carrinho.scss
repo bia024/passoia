@@ -66,6 +66,7 @@
       font-weight: 600;
       margin: 0;
     }
+
     .item-price {
       color: #666;
       margin-top: 0.25rem;
@@ -76,7 +77,7 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    
+
     button {
       background: #f0f0f0;
       border: none;
@@ -88,6 +89,7 @@
       align-items: center;
       justify-content: center;
     }
+
     span {
       font-weight: 600;
       min-width: 20px;
@@ -106,7 +108,10 @@
     font-size: 1.5rem;
     color: #999;
     cursor: pointer;
-    &:hover { color: #ef4444; }
+
+    &:hover {
+      color: #ef4444;
+    }
   }
 }
 
@@ -115,14 +120,15 @@
   padding: 1.5rem;
   border-radius: 0.5rem;
   position: sticky;
-  top: 6rem; // Abaixo do header
+  top: 6rem;
 
   h2 {
     margin-top: 0;
     margin-bottom: 1.5rem;
   }
 
-  .summary-row, .summary-total {
+  .summary-row,
+  .summary-total {
     display: flex;
     justify-content: space-between;
     margin-bottom: 1rem;
@@ -158,10 +164,16 @@
 @media (max-width: 600px) {
   .cart-item {
     grid-template-columns: 80px 1fr;
-    .item-quantity, .item-subtotal, .item-remove {
+
+    .item-quantity,
+    .item-subtotal,
+    .item-remove {
       grid-column: 2;
       justify-self: start;
     }
-    .item-remove { margin-top: 0.5rem; }
+
+    .item-remove {
+      margin-top: 0.5rem;
+    }
   }
 }

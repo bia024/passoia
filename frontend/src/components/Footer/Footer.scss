@@ -1,9 +1,9 @@
-.contatos-wrapper{
+.contatos-wrapper {
   background: #fff;
   padding: 3rem 2rem;
 }
 
-.contatos-grid{
+.contatos-grid {
   max-width: 68.75rem;
   margin: 0 auto;
   display: grid;
@@ -12,7 +12,7 @@
   align-items: start;
 }
 
-.contatos-col h3{
+.contatos-col h3 {
   font-size: 1.125rem;
   letter-spacing: 0.02em;
   text-transform: uppercase;
@@ -20,61 +20,61 @@
   color: #222;
 }
 
-.contatos-col ul{
+.contatos-col ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.contatos-col ul li{
+.contatos-col ul li {
   margin-bottom: 0.875rem;
 }
 
-.contatos-col ul li a{
+.contatos-col ul li a {
   color: #666;
   text-decoration: none;
   font-size: 1rem;
 }
 
-.payments{
-  display:flex;
-  align-items:center;
+.payments {
+  display: flex;
+  align-items: center;
   gap: 1rem;
 }
 
-.payments img{
+.payments img {
   height: 2.125rem;
-  object-fit:contain;
+  object-fit: contain;
 }
 
-.boleto img{
+.boleto img {
   height: 2.75rem;
 }
 
-.socials{
-  display:flex;
+.socials {
+  display: flex;
   gap: 0.75rem;
-  align-items:center;
+  align-items: center;
 }
 
-.social-btn{
+.social-btn {
   width: 2.25rem;
   height: 2.25rem;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 0.375rem;
-  overflow:hidden;
+  overflow: hidden;
 }
 
-.social-btn img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
+.social-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-@media (max-width: 50rem){ /* 800px */
-  .contatos-grid{
+@media (max-width: 50rem) {
+  .contatos-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }

@@ -77,15 +77,16 @@ export default function Acessibilidade() {
   };
 
   const readSelection = () => {
-    const sel =
-      (window.getSelection && window.getSelection().toString()) || "";
+    const sel = (window.getSelection && window.getSelection().toString()) || "";
 
     if (!sel) {
       alert("Selecione o texto para ler.");
       return;
     }
 
-    const ev = new CustomEvent("a11y-read-selection", { detail: { text: sel } });
+    const ev = new CustomEvent("a11y-read-selection", {
+      detail: { text: sel },
+    });
     window.dispatchEvent(ev);
   };
 
@@ -103,12 +104,7 @@ export default function Acessibilidade() {
         </button>
       </div>
 
-      {open && (
-        <div
-          className="a11y-backdrop"
-          onClick={() => setOpen(false)}
-        />
-      )}
+      {open && <div className="a11y-backdrop" onClick={() => setOpen(false)} />}
 
       {open && (
         <div
@@ -170,7 +166,7 @@ export default function Acessibilidade() {
         </div>
       )}
 
-        {readerOpen && <ReaderControls onClose={closeReader} />}
+      {readerOpen && <ReaderControls onClose={closeReader} />}
     </>
   );
 }

@@ -25,7 +25,7 @@ export default function ReaderControls({ onClose }) {
 
   useEffect(() => {
     if (savedVoice) setSelectedVoiceURI(savedVoice);
-    // eslint-disable-next-line
+    // OBSERVAÇÃO, NÃO ESQUECER.:eslint-disable-next-line
   }, []);
 
   useEffect(() => {
@@ -54,7 +54,11 @@ export default function ReaderControls({ onClose }) {
       return;
     }
     play(sel);
-    logEvent("play", "selection", { length: sel.length, rate, voice: selectedVoiceURI });
+    logEvent("play", "selection", {
+      length: sel.length,
+      rate,
+      voice: selectedVoiceURI,
+    });
   };
 
   const handlePause = () => {
@@ -74,7 +78,13 @@ export default function ReaderControls({ onClose }) {
     <section className="reader-controls-panel" aria-label="Controles do leitor">
       <header className="reader-header">
         <h4>Leitor de Tela</h4>
-        <button className="reader-close" onClick={onClose} aria-label="Fechar leitor">✖</button>
+        <button
+          className="reader-close"
+          onClick={onClose}
+          aria-label="Fechar leitor"
+        >
+          ✖
+        </button>
       </header>
 
       <div className="reader-row">
@@ -110,11 +120,21 @@ export default function ReaderControls({ onClose }) {
       </div>
 
       <div className="reader-actions">
-        <button onClick={playMain} aria-label="Ler conteúdo principal">▶ Ler principal</button>
-        <button onClick={playSelection} aria-label="Ler seleção de texto">▶ Ler seleção</button>
-        <button onClick={handlePause} aria-label="Pausar leitura">⏸ Pausar</button>
-        <button onClick={handleResume} aria-label="Retomar leitura">▶ Retomar</button>
-        <button onClick={handleStop} aria-label="Parar leitura">⛔ Parar</button>
+        <button onClick={playMain} aria-label="Ler conteúdo principal">
+          ▶ Ler principal
+        </button>
+        <button onClick={playSelection} aria-label="Ler seleção de texto">
+          ▶ Ler seleção
+        </button>
+        <button onClick={handlePause} aria-label="Pausar leitura">
+          ⏸ Pausar
+        </button>
+        <button onClick={handleResume} aria-label="Retomar leitura">
+          ▶ Retomar
+        </button>
+        <button onClick={handleStop} aria-label="Parar leitura">
+          ⛔ Parar
+        </button>
       </div>
 
       <footer className="reader-foot">

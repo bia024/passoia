@@ -5,12 +5,12 @@ import olhos from "../../assets/olhos.jpg";
 import rosto from "../../assets/rosto.png";
 import tendencia from "../../assets/tendencia.png";
 
-export default function Looks() {  
+export default function Looks() {
   const items = [
     { img: labios, titulo: "LÁBIOS" },
     { img: olhos, titulo: "OLHOS" },
     { img: rosto, titulo: "ROSTO" },
-    { img: tendencia, titulo: "TENDÊNCIA" }
+    { img: tendencia, titulo: "TENDÊNCIA" },
   ];
 
   return (

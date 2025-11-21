@@ -6,7 +6,6 @@ export function logEvent(event, detail = "", meta = {}) {
     const arr = raw ? JSON.parse(raw) : [];
     const entry = { ts: Date.now(), event, detail, meta };
     arr.push(entry);
-    // keep last 500
     localStorage.setItem(LS_KEY, JSON.stringify(arr.slice(-500)));
     console.info("[A11Y LOG]", entry);
   } catch (e) {

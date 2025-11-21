@@ -14,10 +14,8 @@ import Login from "./pages/Login/Login.jsx";
 import Carrinho from "./pages/Carrinho/Carrinho.jsx";
 import Favoritos from "./pages/Favoritos/Favoritos.jsx";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
-// import ProdutoDetalhe from "./pages/ProdutoDetalhe/ProdutoDetalhe.jsx";
 
 export default function App() {
-
   useEffect(() => {
     const handleKey = (e) => {
       if (e.shiftKey && e.key === "L") {
@@ -50,7 +48,7 @@ export default function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/carrinho" element={<Carrinho />} />
         <Route element={<ProtectedRoute />}>
-          <Route path="/favoritos" element={<Favoritos />} />
+        <Route path="/favoritos" element={<Favoritos />} />
         </Route>
       </Routes>
       <Footer />

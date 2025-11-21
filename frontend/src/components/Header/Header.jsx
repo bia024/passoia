@@ -2,7 +2,14 @@ import { useState } from "react";
 import "./Header.scss";
 import Logo from "../../assets/L'Oréal.png";
 import { Link, useNavigate } from "react-router-dom";
-import { MdPersonAdd, MdShoppingCart, MdMenu, MdClose, MdLogout, MdAccountCircle } from 'react-icons/md';
+import {
+  MdPersonAdd,
+  MdShoppingCart,
+  MdMenu,
+  MdClose,
+  MdLogout,
+  MdAccountCircle,
+} from "react-icons/md";
 import { useAuth } from "../../AuthContext.jsx";
 import { useCart } from "../../context/CartContext.jsx";
 
@@ -19,29 +26,39 @@ export default function Header() {
   const handleLogout = () => {
     logout();
     handleLinkClick();
-    navigate('/');
+    navigate("/");
   };
 
   return (
     <header>
       <img src={Logo} alt="Logo Passoia" />
 
-      <nav className={isMenuOpen ? 'active' : ''}>
+      <nav className={isMenuOpen ? "active" : ""}>
         <ul>
           <li>
-            <Link to="/looks" onClick={handleLinkClick}>LOOKS</Link>
+            <Link to="/looks" onClick={handleLinkClick}>
+              LOOKS
+            </Link>
           </li>
           <li>
-            <Link to="/lancamentos" onClick={handleLinkClick}>LANÇAMENTOS</Link>
+            <Link to="/lancamentos" onClick={handleLinkClick}>
+              LANÇAMENTOS
+            </Link>
           </li>
           <li>
-            <Link to="/novidades" onClick={handleLinkClick}>NOVIDADES</Link>
+            <Link to="/novidades" onClick={handleLinkClick}>
+              NOVIDADES
+            </Link>
           </li>
           <li>
-            <Link to="/blackfriday" onClick={handleLinkClick}>BLACKFRIDAY</Link>
+            <Link to="/blackfriday" onClick={handleLinkClick}>
+              BLACKFRIDAY
+            </Link>
           </li>
           <li>
-            <Link to="/favoritos" onClick={handleLinkClick}>FAVORITOS</Link>
+            <Link to="/favoritos" onClick={handleLinkClick}>
+              FAVORITOS
+            </Link>
           </li>
         </ul>
       </nav>
@@ -50,33 +67,51 @@ export default function Header() {
         {isAuthenticated ? (
           <>
             <span className="welcome-message">Olá, {user.nome}</span>
-            <button onClick={handleLogout} className="icon-btn" aria-label="Sair da conta">
+            <button
+              onClick={handleLogout}
+              className="icon-btn"
+              aria-label="Sair da conta"
+            >
               <MdLogout />
             </button>
           </>
         ) : (
           <>
-            <Link to="/cadastro" className="icon-btn" aria-label="Página de cadastro">
+            <Link
+              to="/cadastro"
+              className="icon-btn"
+              aria-label="Página de cadastro"
+            >
               <MdPersonAdd />
             </Link>
-            <Link to="/login" className="icon-btn" aria-label="Página de login" onClick={handleLinkClick}>
+            <Link
+              to="/login"
+              className="icon-btn"
+              aria-label="Página de login"
+              onClick={handleLinkClick}
+            >
               <MdAccountCircle />
             </Link>
           </>
         )}
 
-        <Link to="/carrinho" className="icon-btn cart-btn" aria-label="Carrinho de compras">
-            <MdShoppingCart />
-            {itemCount > 0 && (
-              <span className="cart-count">{itemCount}</span>
-            )}
+        <Link
+          to="/carrinho"
+          className="icon-btn cart-btn"
+          aria-label="Carrinho de compras"
+        >
+          <MdShoppingCart />
+          {itemCount > 0 && <span className="cart-count">{itemCount}</span>}
         </Link>
 
-        <button className="menu-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Abrir menu">
+        <button
+          className="menu-toggle"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label="Abrir menu"
+        >
           {isMenuOpen ? <MdClose /> : <MdMenu />}
         </button>
       </div>
-
     </header>
   );
 }

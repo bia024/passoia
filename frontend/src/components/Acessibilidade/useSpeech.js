@@ -21,7 +21,7 @@ export default function useSpeech(defaultRate = 1) {
     return () => {
       window.speechSynthesis.onvoiceschanged = null;
     };
-    // eslint-disable-next-line
+    // OBS.: NÃO ESQUECER -> eslint-disable-next-line
   }, []);
 
   useEffect(() => {

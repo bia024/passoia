@@ -1,21 +1,36 @@
-import { listProdutosService, getProdutoByIdService } from "../services/produto.service.js";
+// src/controllers/produto.controller.js
+import {
+  listarProdutos,
+  buscarProdutoPorId,
+  criarProduto,
+  atualizarProduto,
+  deletarProduto,
+} from "../services/produto.service.js";
 
-export async function listProdutos(req, res) {
-  try {
-    const produtos = await listProdutosService();
-    return res.status(200).json(produtos);
-  } catch (error) {
-    return res.status(500).json({ error: "Erro ao listar produtos." });
-  }
-}
+export const getProdutos = async (req, res) => {
+  const produtos = await listarProdutos();
+  return res.json(produtos);
+};
 
-// ADICIONE ESTE CONTROLLER
-export async function getProdutoById(req, res) {
-  try {
-    const { id } = req.params;
-    const produto = await getProdutoByIdService(id);
-    return res.status(200).json(produto);
-  } catch (error) {
-    return res.status(404).json({ error: error.message });
-  }
-}
+export const getProdutoById = async (req, res) => {
+  const produto = await buscarProdutoPorId(req.params.id);
+  if (!produto)
+    return res.status(404).json({ error: "Produto não encontrado" });
+  return res.json(produto);
+};
+
+export const createProduto = async (req, res) => {
+  const data = req.body;
+  const novo = await criarProduto(data);
+  return res.status(201).json(novo);
+};
+
+export const updateProduto = async (req, res) => {
+  const updated = await atualizarProduto(req.params.id, req.body);
+  return res.json(updated);
+};
+
+export const deleteProduto = async (req, res) => {
+  await deletarProduto(req.params.id);
+  return res.json({ message: "Produto deletado" });
+};

@@ -1,60 +1,54 @@
-// Conexão com o banco SQLite
+// prisma/schema.prisma
+//dps acertar isso
+
 datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
 
-// Cliente do Prisma
 generator client {
   provider = "prisma-client-js"
 }
 
-// Modelo dos usuários
 model User {
-  id        Int      @id @default(autoincrement())
-  nome      String
-  email     String   @unique
-  senha     String
-  createdAt DateTime @default(now())
+  id          Int      @id @default(autoincrement())
+  tipo        String   // consumidor | panelista | parceiro | admin
+  nome        String?
+  cpf         String?  @unique
+  nomeEmpresa String?
+  cnpj        String?  @unique
+  email       String   @unique
+  senha       String
+  cep         String?
+  telefone    String?
+  endereco    String?
+  bairro      String?
+  cidade      String?
+  estado      String?
+  createdAt   DateTime @default(now())
 
-  wishlist WishlistItem[]
+  Wishlist WishlistItem[]
 }
 
 model Produto {
-  id          String   @id @default(uuid())
-  nome        String
-  descricao   String
-  preco       Float
-  imagemUrl   String // Imagem principal
-  avaliacoes  String // URL para a imagem de avaliações
-  thumbnails  ProdutoThumbnail[]
-  cores       ProdutoCor[]
+  id         Int      @id @default(autoincrement())
+  nome       String
+  descricao  String?
+  preco      Float
+  estoque    Int      @default(0)
+  imagemUrl  String? 
+  criadoEm   DateTime @default(now())
 
-  wishlistedBy WishlistItem[]
-}
-
-model ProdutoThumbnail {
-  id        String  @id @default(uuid())
-  url       String
-  produto   Produto @relation(fields: [produtoId], references: [id])
-  produtoId String
+  Wishlist WishlistItem[]
 }
 
 model WishlistItem {
-  user      User     @relation(fields: [userId], references: [id])
   userId    Int
-  produto   Produto  @relation(fields: [produtoId], references: [id])
-  produtoId String
+  produtoId Int
   addedAt   DateTime @default(now())
 
-  @@id([userId, produtoId]) // Chave primária composta
-}
+  user    User    @relation(fields: [userId], references: [id])
+  produto Produto @relation(fields: [produtoId], references: [id])
 
-model ProdutoCor {
-  id        String  @id @default(uuid())
-  hex       String // Ex: "#BFB8E8"
-  nome      String // Ex: "lavender"
-  imagemUrl String // Imagem associada à cor
-  produto   Produto @relation(fields: [produtoId], references: [id])
-  produtoId String
+  @@id([userId, produtoId])
 }

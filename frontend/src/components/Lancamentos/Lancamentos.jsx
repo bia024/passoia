@@ -74,18 +74,17 @@
 //   );
 // } deixar comentado como base
 
-
 import "./Lancamentos.scss";
 import { useState } from "react";
 import avaliacoes from "../../assets/avaliacoes.png";
-import thumb1 from '../../assets/kit3Batons.png';
-import thumb2 from '../../assets/kitBatomvermelhoNudeRosa.png';
-import thumb3 from '../../assets/kitGloss.png';
-import imgAzul from '../../assets/azul.png';
-import imgVermelho from '../../assets/vermelho.png';
-import imgMarrom from '../../assets/marrom.png';
-import imgBase from '../../assets/base.png';
-import { useCart } from "../../context/CartContext.jsx"; 
+import thumb1 from "../../assets/kit3Batons.png";
+import thumb2 from "../../assets/kitBatomvermelhoNudeRosa.png";
+import thumb3 from "../../assets/kitGloss.png";
+import imgAzul from "../../assets/azul.png";
+import imgVermelho from "../../assets/vermelho.png";
+import imgMarrom from "../../assets/marrom.png";
+import imgBase from "../../assets/base.png";
+import { useCart } from "../../context/CartContext.jsx";
 import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
 import { useAuth } from "../../AuthContext.jsx";
 import { useNavigate } from "react-router-dom";
@@ -97,10 +96,10 @@ export default function Lancamentos() {
   const navigate = useNavigate();
 
   const swatches = [
-    { color: '#BFB8E8', key: 'lavender', image: imgAzul },
-    { color: '#E84B3A', key: 'red', image: imgVermelho },
-    { color: '#6E2626', key: 'marrom', image: imgMarrom },
-    { color: '#D2B48C', key: 'base', image: imgBase },
+    { color: "#BFB8E8", key: "lavender", image: imgAzul },
+    { color: "#E84B3A", key: "red", image: imgVermelho },
+    { color: "#6E2626", key: "marrom", image: imgMarrom },
+    { color: "#D2B48C", key: "base", image: imgBase },
   ];
 
   const thumbs = [thumb1, thumb2, thumb3];
@@ -113,11 +112,11 @@ export default function Lancamentos() {
   const handleAddToCart = () => {
     addToCart({
       id: `matte-premium-${selectedColor}`,
-      nome: 'Matte Premium',
-      preco: 89.90,
+      nome: "Matte Premium",
+      preco: 89.9,
       imagem: mainImage,
     });
-    
+
     setIsAdded(true);
     setTimeout(() => {
       setIsAdded(false);
@@ -126,20 +125,27 @@ export default function Lancamentos() {
 
   const handleFavoriteClick = async () => {
     if (!isAuthenticated) {
-      navigate('/login');
+      navigate("/login");
       return;
     }
-    const produtoId = 'matte-premium-static-id'; 
+    const produtoId = "matte-premium-static-id";
 
     try {
       const config = {
-        headers: { Authorization: `Bearer ${token}` }
+        headers: { Authorization: `Bearer ${token}` },
       };
 
       if (isFavorited) {
-        await axios.delete(`http://localhost:3000/wishlist/${produtoId}`, config);
+        await axios.delete(
+          `http://localhost:3000/wishlist/${produtoId}`,
+          config
+        );
       } else {
-        await axios.post('http://localhost:3000/wishlist', { produtoId }, config);
+        await axios.post(
+          "http://localhost:3000/wishlist",
+          { produtoId },
+          config
+        );
       }
       setIsFavorited(!isFavorited);
     } catch (error) {
@@ -163,7 +169,12 @@ export default function Lancamentos() {
       <article className="lancamentos-grid">
         <aside className="thumbs">
           {thumbs.map((t, i) => (
-            <button key={i} className="thumb-box" onClick={() => setMainImage(t)} aria-label={`Selecionar miniatura ${i + 1}`}>
+            <button
+              key={i}
+              className="thumb-box"
+              onClick={() => setMainImage(t)}
+              aria-label={`Selecionar miniatura ${i + 1}`}
+            >
               <img src={t} alt={`Miniatura ${i + 1}`} />
             </button>
           ))}
@@ -171,7 +182,11 @@ export default function Lancamentos() {
 
         <figure className="main-image">
           <div className="frame">
-            <button className={`wishlist ${isFavorited ? 'favorited' : ''}`} onClick={handleFavoriteClick} aria-label="Adicionar aos favoritos">
+            <button
+              className={`wishlist ${isFavorited ? "favorited" : ""}`}
+              onClick={handleFavoriteClick}
+              aria-label="Adicionar aos favoritos"
+            >
               {isFavorited ? <MdFavorite /> : <MdFavoriteBorder />}
             </button>
             <img src={mainImage} alt="Produto principal" />
@@ -183,23 +198,41 @@ export default function Lancamentos() {
             <img src={avaliacoes} alt="Avaliações do produto" />
           </div>
           <h2>Matte Premium</h2>
-          <small style={{ display: 'block', marginTop: '.25rem' }}>Cores disponíveis</small>
+          <small style={{ display: "block", marginTop: ".25rem" }}>
+            Cores disponíveis
+          </small>
           <nav className="colors">
             {swatches.map((s) => (
-              <button key={s.key} className="swatch" onClick={() => handleColorClick(s)} aria-label={`Cor ${s.key}`} style={{ background: s.color, border: s.color === selectedColor ? '3px solid #d4af37' : '2px solid rgba(0,0,0,0.06)' }} />
+              <button
+                key={s.key}
+                className="swatch"
+                onClick={() => handleColorClick(s)}
+                aria-label={`Cor ${s.key}`}
+                style={{
+                  background: s.color,
+                  border:
+                    s.color === selectedColor
+                      ? "3px solid #d4af37"
+                      : "2px solid rgba(0,0,0,0.06)",
+                }}
+              />
             ))}
           </nav>
           <section className="descricao">
             <h4>Descrição</h4>
             <p>
-              O Batom Matte possui uma fórmula inovadora desenvolvida para entregar
-              cor intensa na primeira aplicação, com um deslize suave e macio.
-              Possui acabamento matte aveludado e manteiga de manga que hidrata e
-              protege contra o ressecamento. Textura fina, confortável e
-              levemente perfumada.
+              O Batom Matte possui uma fórmula inovadora desenvolvida para
+              entregar cor intensa na primeira aplicação, com um deslize suave e
+              macio. Possui acabamento matte aveludado e manteiga de manga que
+              hidrata e protege contra o ressecamento. Textura fina, confortável
+              e levemente perfumada.
             </p>
-            <button className={`add-to-cart-btn ${isAdded ? 'added' : ''}`} onClick={handleAddToCart} disabled={isAdded}>
-              {isAdded ? 'Adicionado ✓' : 'Adicionar ao Carrinho'}
+            <button
+              className={`add-to-cart-btn ${isAdded ? "added" : ""}`}
+              onClick={handleAddToCart}
+              disabled={isAdded}
+            >
+              {isAdded ? "Adicionado ✓" : "Adicionar ao Carrinho"}
             </button>
           </section>
         </aside>

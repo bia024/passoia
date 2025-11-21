@@ -7,16 +7,16 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 0 2rem;
-    position: sticky; 
+    position: sticky;
     top: 0;
     z-index: 999;
 
-    nav{
+    nav {
         flex-grow: 1;
         display: flex;
         justify-content: center;
     }
-    
+
     img {
         height: 3.75rem;
         width: auto;
@@ -42,7 +42,7 @@ header {
         transition: color 0.3s ease;
 
         &::after {
-            content: '';
+            content: "";
             position: absolute;
             bottom: 0;
             left: 0;
@@ -56,6 +56,7 @@ header {
 
         &:hover {
             color: #000;
+
             &::after {
                 transform: scaleX(1);
             }
@@ -71,7 +72,7 @@ header {
     .welcome-message {
         font-weight: 600;
         color: #555;
-        white-space: nowrap; /* Evita que o nome quebre em duas linhas */
+        white-space: nowrap;
     }
 
     .icon-btn {
@@ -94,7 +95,7 @@ header {
     }
 
     .cart-btn {
-        position: relative; /* Para posicionar o contador */
+        position: relative;
     }
 
     .cart-count {
@@ -117,11 +118,9 @@ header {
         display: none;
     }
 
-    /* --- MODO RESPONSIVO --- */
     @media (max-width: 768px) {
         padding: 0 1rem;
 
-        /* Esconde a navegação principal */
         nav {
             position: absolute;
             top: 0;
@@ -133,7 +132,7 @@ header {
             display: flex;
             align-items: center;
             justify-content: center;
-            transform: translateX(-100%); /* Esconde o menu fora da tela */
+            transform: translateX(-100%);
             transition: transform 0.3s ease-in-out;
             z-index: 1000;
 
@@ -145,12 +144,10 @@ header {
             }
         }
 
-        /* Mostra a navegação quando ativa */
         nav.active {
             transform: translateX(0);
         }
 
-        /* Mostra o botão de menu hambúrguer */
         .menu-toggle {
             display: flex;
             z-index: 1001;

@@ -68,12 +68,12 @@
   padding: 2rem;
   box-shadow: 0 0.625rem 1.875rem rgba(16, 24, 40, 0.06);
   border: 0.0625rem solid rgba(16, 24, 40, 0.04);
-  transition: transform 220ms cubic-bezier(.2,.9,.2,1), box-shadow 220ms;
+  transition: transform 220ms cubic-bezier(.2, .9, .2, 1), box-shadow 220ms;
 }
 
 .card:hover {
-  transform: translateY(-0.25rem); /* -4px */
-  box-shadow: 0 1.125rem 2.5rem rgba(16,24,40,0.08); /* 0 18px 40px */
+  transform: translateY(-0.25rem);
+  box-shadow: 0 1.125rem 2.5rem rgba(16, 24, 40, 0.08);
 }
 
 h1 {
@@ -96,7 +96,7 @@ h1 {
   border-radius: 10px;
   margin-bottom: 14px;
   font-weight: 600;
-  border: 1px solid rgba(6,95,70,0.06);
+  border: 1px solid rgba(6, 95, 70, 0.06);
 }
 
 .form {
@@ -123,7 +123,7 @@ label {
   border-radius: 10px;
   outline: none;
   transition: box-shadow 160ms, border-color 160ms, transform 160ms;
-  box-shadow: 0 1px 0 rgba(15,23,42,0.02) inset;
+  box-shadow: 0 1px 0 rgba(15, 23, 42, 0.02) inset;
 }
 
 .input:focus {
@@ -150,7 +150,7 @@ label {
   border: none;
   font-size: 1rem;
   transition: transform 160ms, opacity 160ms, box-shadow 160ms;
-  box-shadow: 0 8px 28px rgba(37,99,235,0.14);
+  box-shadow: 0 8px 28px rgba(37, 99, 235, 0.14);
 }
 
 .cta:disabled {
@@ -171,7 +171,7 @@ label {
     border-radius: 0.75rem;
   }
 
-  .page{
+  .page {
     padding: 28px 8px;
   }
 }
@@ -188,7 +188,42 @@ label {
 
 .hint {
   display: block;
-  font-size: 0.85rem; 
+  font-size: 0.85rem;
   color: var(--muted);
   margin-top: 0.375rem;
+}
+
+.redirect-link {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+
+  a {
+    color: var(--accent-start);
+    font-weight: 600;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.user-type-selection {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  margin: 1.5rem 0;
+}
+
+.back-button {
+  background: transparent;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--muted);
+  cursor: pointer;
+  align-self: flex-start;
+  margin-bottom: 1rem;
 }

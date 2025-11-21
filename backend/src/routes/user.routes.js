@@ -1,11 +1,12 @@
+// src/routes/user.routes.js
 import { Router } from "express";
 import {
+  registerUser,
+  loginUser,
   listUsers,
   getUserById,
   updateUser,
   deleteUser,
-  registerUser,
-  loginUser,
 } from "../controllers/user.controller.js";
 
 const router = Router();

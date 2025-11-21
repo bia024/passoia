@@ -1,12 +1,19 @@
+// src/routes/produto.routes.js
 import { Router } from "express";
-import { listProdutos, getProdutoById } from "../controllers/produto.controller.js";
+import {
+  getProdutos,
+  getProdutoById,
+  createProduto,
+  updateProduto,
+  deleteProduto,
+} from "../controllers/produto.controller.js";
 
 const router = Router();
 
-// Rota para listar todos os produtos
-router.get("/", listProdutos);
-
-// ADICIONE ESTA ROTA
+router.get("/", getProdutos);
 router.get("/:id", getProdutoById);
+router.post("/", createProduto);
+router.put("/:id", updateProduto);
+router.delete("/:id", deleteProduto);
 
 export default router;
