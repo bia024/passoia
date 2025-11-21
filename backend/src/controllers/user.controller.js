@@ -48,25 +48,6 @@ export async function registerUser(req, res) {
   }
 }
 
-export async function listUsers(req, res) {
-  try {
-    const users = await listUsersService();
-    return res.status(200).json(users);
-  } catch (error) {
-    return res.status(500).json({ error: "Erro ao listar usuários." });
-  }
-}
-
-export async function getUserById(req, res) {
-  try {
-    const { id } = req.params;
-    const user = await getUserByIdService(id);
-    return res.status(200).json(user);
-  } catch (error) {
-    return res.status(404).json({ error: error.message });
-  }
-}
-
 export async function loginUser(req, res) {
   try {
     const { email, senha } = req.body;
