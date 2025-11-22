@@ -1,4 +1,4 @@
-.Lancamentos-container {
+.Tendencia-container {
     max-width: 75rem;
     margin: 0 auto;
     padding: 4rem 1rem;
@@ -35,11 +35,10 @@
         }
     }
 
-    .lancamentos-grid {
+    .tendencia-grid {
         display: grid;
         grid-template-columns: 5.625rem 1fr 27.5rem;
         gap: 2.5rem;
-        align-items: start;
         align-items: stretch;
     }
 
@@ -48,6 +47,14 @@
         flex-direction: column;
         gap: 1rem;
         align-items: center;
+
+        h4 {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #888;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
 
         .thumb-box {
             background: #fff;
@@ -59,6 +66,7 @@
             justify-content: center;
             box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.04);
             border-radius: 0.25rem;
+            cursor: pointer;
         }
 
         img {
@@ -66,7 +74,6 @@
             height: 3.5rem;
             object-fit: cover;
             border-radius: 0.125rem;
-            cursor: pointer;
             transition: transform .15s ease, box-shadow .15s ease;
         }
 
@@ -103,9 +110,6 @@
         align-items: center;
         background: #f6f4f8;
         padding: 1.25rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
 
         .frame {
             position: relative;
@@ -113,9 +117,10 @@
 
         img {
             width: 100%;
-            max-width: 35rem;
+            max-width: 25rem;
+            max-height: 25rem;
             height: auto;
-            object-fit: cover;
+            object-fit: contain;
             display: block;
             background: transparent;
         }
@@ -128,35 +133,22 @@
         border-radius: 0.25rem;
         position: relative;
 
-        .rating {
-            display: flex;
-            align-items: center;
-            gap: .5rem;
-
-            img {
-                width: 6.875rem;
-            }
-        }
-
         h2 {
             margin: .5rem 0 0.5rem;
             font-size: 1.25rem;
             font-weight: 700;
         }
 
-        .colors {
-            display: flex;
-            gap: 0.75rem;
-            margin: .5rem 0 1rem;
-            align-items: center;
+        .price {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #333;
+            margin: 0.5rem 0 1rem;
+        }
 
-            .swatch {
-                width: 2.25rem;
-                height: 2.25rem;
-                border-radius: 50%;
-                box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.08);
-                cursor: pointer;
-            }
+        .rating {
+            width: 100px;
+            margin-bottom: 1rem;
         }
 
         .descricao {
@@ -174,25 +166,32 @@
     }
 
     @media (max-width: 56.25rem) {
-        .lancamentos-grid {
-            grid-template-columns: 3.75rem 1fr;
+        .tendencia-grid {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .main-image {
+            order: 1;
+        }
+
+        .thumbs {
+            order: 3;
+            flex-direction: row;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
         }
 
         .details {
-            grid-column: 1 / -1;
-            margin-top: 1.5rem
-        }
-    }
+            order: 2;
+            box-shadow: none;
+            padding: 1rem 0;
 
-    .details::before {
-        content: '';
-        position: absolute;
-        left: -1.125rem;
-        top: 0.75rem;
-        bottom: 0.75rem;
-        width: 0.0625rem;
-        background: rgba(0, 0, 0, 0.06);
-        border-radius: 0.0625rem;
+            &::before {
+                display: none;
+            }
+        }
     }
 
     .add-to-cart-btn {
@@ -217,8 +216,4 @@
             color: white;
         }
     }
-}
-
-body.high-contrast .details {
-    color: #000;
 }

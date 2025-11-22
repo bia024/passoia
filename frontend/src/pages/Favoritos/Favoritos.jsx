@@ -63,6 +63,9 @@ export default function Favoritos() {
               <h3>{item.produto.nome}</h3>
               <p>R$ {item.produto.preco.toFixed(2)}</p>
               <button className="btn-ver-produto">Ver Produto</button>
+              <Link to="/lancamentos" className="btn-ver-produto">
+                Ver Produto
+              </Link>
             </div>
           ))}
         </div>

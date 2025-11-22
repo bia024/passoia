@@ -1,7 +1,5 @@
-/* 1. Importar a fonte Montserrat do Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap');
 
-/* 2. Aplicar a fonte globalmente e resetar estilos básicos */
 * {
   margin: 0;
   padding: 0;
@@ -12,11 +10,10 @@ body {
   font-family: 'Montserrat', sans-serif;
   background-color: #f8f9fa;
   color: #212529;
-  -webkit-font-smoothing: antialiased; /* Melhora a renderização da fonte */
+  -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Aprimoramento de Acessibilidade: Indicador de Foco Global */
 *:focus-visible {
   outline: 3px solid #d4af37;
   outline-offset: 3px;
