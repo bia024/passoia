@@ -21,73 +21,97 @@ export default function Lancamentos() {
 
   const swatches = [
     {
+      id: "matte-premium-lavender",
+      nome: "Matte Premium Lavanda",
+      preco: 89.9,
       color: "#BFB8E8",
       key: "lavender",
       image: imgAzul,
-      description:
-        "Desafie o convencional com o tom lavanda, uma cor ousada que expressa sua criatividade. O Batom Matte possui uma fórmula inovadora desenvolvida para entregar cor intensa na primeira aplicação, com um deslize suave e macio. Possui acabamento matte aveludado e manteiga de manga que hidrata e protege contra o ressecamento. Textura fina, confortável e levemente perfumada.",
+      description: "Desafie o convencional com o tom lavanda, uma cor ousada que expressa sua criatividade. Fórmula inovadora com cor intensa e deslize suave.",
     },
     {
+      id: "matte-premium-red",
+      nome: "Matte Premium Vermelho",
+      preco: 89.9,
       color: "#E84B3A",
       key: "red",
       image: imgVermelho,
       description:
-        "Sinta o poder do vermelho clássico, a cor da confiança que nunca sai de moda. O Batom Matte possui uma fórmula inovadora desenvolvida para entregar cor intensa na primeira aplicação, com um deslize suave e macio. Possui acabamento matte aveludado e manteiga de manga que hidrata e protege contra o ressecamento. Textura fina, confortável e levemente perfumada.",
+        "Sinta o poder do vermelho clássico, a cor da confiança que nunca sai de moda. Fórmula inovadora com cor intensa e deslize suave.",
     },
     {
+      id: "matte-premium-marrom",
+      nome: "Matte Premium Marrom",
+      preco: 89.9,
       color: "#6E2626",
       key: "marrom",
       image: imgMarrom,
       description:
-        "Envolva-se na sofisticação do marrom profundo, um toque de elegância para um visual marcante. O Batom Matte possui uma fórmula inovadora desenvolvida para entregar cor intensa na primeira aplicação, com um deslize suave e macio. Possui acabamento matte aveludado e manteiga de manga que hidrata e protege contra o ressecamento. Textura fina, confortável e levemente perfumada.",
+        "Envolva-se na sofisticação do marrom profundo. Este batom em bala tem acabamento matte e uma fórmula inovadora com cor intensa e deslize suave.",
     },
     {
+      id: "matte-premium-base",
+      nome: "Matte Premium Base",
+      preco: 89.9,
       color: "#D2B48C",
       key: "base",
       image: imgBase,
       description:
-        "Descubra a versatilidade do nude perfeito, o segredo para um look impecável todos os dias. O Batom Matte possui uma fórmula inovadora desenvolvida para entregar cor intensa na primeira aplicação, com um deslize suave e macio. Possui acabamento matte aveludado e manteiga de manga que hidrata e protege contra o ressecamento. Textura fina, confortável e levemente perfumada.",
+        "Descubra a versatilidade do nude perfeito, o segredo para um look impecável todos os dias. Fórmula inovadora com cor intensa e deslize suave.",
     },
   ];
 
   const kits = [
     {
+      id: "kit-3-batons",
+      nome: "Kit 3 Batons Matte",
+      preco: 239.9,
       image: thumb1,
-      description:
-        "Um kit versátil com três cores de batom matte para você criar looks incríveis, do dia à noite.",
+      description: "Um kit versátil com três cores de batom matte para você criar looks incríveis, do dia à noite.",
     },
     {
+      id: "kit-vermelho-nude-rosa",
+      nome: "Kit Vermelho, Nude e Rosa",
+      preco: 239.9,
       image: thumb2,
-      description:
-        "O trio perfeito para todas as ocasiões: um vermelho poderoso, um nude clássico e um rosa delicado.",
+      description: "O trio perfeito para todas as ocasiões: um vermelho poderoso, um nude clássico e um rosa delicado.",
     },
     {
+      id: "kit-gloss",
+      nome: "Kit Gloss Brilhante",
+      preco: 199.9,
       image: thumb3,
-      description:
-        "Explore o brilho com nosso kit de gloss. Cores vibrantes com acabamento espelhado para lábios irresistíveis.",
+      description: "Explore o brilho com nosso kit de gloss. Cores vibrantes com acabamento espelhado para lábios irresistíveis.",
     },
   ];
 
-  const [mainImage, setMainImage] = useState(swatches[0].image);
-  const [selectedColor, setSelectedColor] = useState(swatches[0].color);
-  const [currentDescription, setCurrentDescription] = useState(
-    swatches[0].description
-  );
+  const lipstickReference = {
+    id: "matte-premium-group",
+    nome: "Matte Premium",
+    preco: 89.9,
+    image: swatches[0].image,
+    description: "Escolha sua cor favorita do nosso batom Matte Premium. Fórmula inovadora com cor intensa e deslize suave.",
+    isGroup: true,
+  };
+
+  const thumbnailItems = [lipstickReference, ...kits];
+
+  const [currentItem, setCurrentItem] = useState(swatches[0]);
+  const [selectedColor, setSelectedColor] = useState(swatches[0].color); 
+
   const [isFavorited, setIsFavorited] = useState(false);
   const [isAdded, setIsAdded] = useState(false);
 
   const handleAddToCart = () => {
     addToCart({
-      id: `matte-premium-${selectedColor.replace("#", "")}`,
-      nome: "Matte Premium",
-      preco: 89.9,
-      imagem: mainImage,
+      id: currentItem.id,
+      nome: currentItem.nome,
+      preco: currentItem.preco,
+      imagem: currentItem.image,
     });
 
     setIsAdded(true);
-    setTimeout(() => {
-      setIsAdded(false);
-    }, 2000);
+    setTimeout(() => setIsAdded(false), 2000);
   };
 
   const handleFavoriteClick = async () => {
@@ -95,7 +119,7 @@ export default function Lancamentos() {
       navigate("/login");
       return;
     }
-    const produtoId = "matte-premium-static-id";
+    const produtoId = currentItem.id;
 
     try {
       const config = {
@@ -122,9 +146,8 @@ export default function Lancamentos() {
   };
 
   const handleColorClick = (swatch) => {
+    setCurrentItem(swatch);
     setSelectedColor(swatch.color);
-    setMainImage(swatch.image);
-    setCurrentDescription(swatch.description);
     setIsAdded(false);
   };
 
@@ -137,18 +160,23 @@ export default function Lancamentos() {
 
       <article className="lancamentos-grid">
         <aside className="thumbs">
-          {kits.map((kit, i) => (
+          {thumbnailItems.map((item, i) => (
             <button
               key={i}
               className="thumb-box"
               onClick={() => {
-                setMainImage(kit.image);
-                setCurrentDescription(kit.description);
+                if (item.isGroup) {
+                  setCurrentItem(swatches[0]);
+                  setSelectedColor(swatches[0].color);
+                } else {
+                  setCurrentItem(item);
+                  setSelectedColor(null);
+                }
                 setIsAdded(false);
               }}
-              aria-label={`Selecionar miniatura ${i + 1}`}
+              aria-label={`Selecionar ${item.nome}`}
             >
-              <img src={kit.image} alt={`Miniatura ${i + 1}`} />
+              <img src={item.image} alt={`Miniatura de ${item.nome}`} />
             </button>
           ))}
         </aside>
@@ -162,7 +190,7 @@ export default function Lancamentos() {
             >
               {isFavorited ? <MdFavorite /> : <MdFavoriteBorder />}
             </button>
-            <img src={mainImage} alt="Produto principal" />
+            <img src={currentItem.image} alt="Produto principal" />
           </div>
         </figure>
 
@@ -170,30 +198,36 @@ export default function Lancamentos() {
           <div className="rating">
             <img src={avaliacoes} alt="Avaliações do produto" />
           </div>
-          <h2>Matte Premium</h2>
-          <small style={{ display: "block", marginTop: ".25rem" }}>
-            Cores disponíveis
-          </small>
-          <nav className="colors">
-            {swatches.map((s) => (
-              <button
-                key={s.key}
-                className="swatch"
-                onClick={() => handleColorClick(s)}
-                aria-label={`Cor ${s.key}`}
-                style={{
-                  background: s.color,
-                  border:
-                    s.color === selectedColor
-                      ? "3px solid #d4af37"
-                      : "2px solid rgba(0,0,0,0.06)",
-                }}
-              />
-            ))}
-          </nav>
+          <h2>{currentItem.nome}</h2>
+          <div className="price">
+            <span className="current-price">
+              R$ {currentItem.preco.toFixed(2).replace(".", ",")}
+            </span>
+          </div>
+          {currentItem.color && (
+            <>
+              <small style={{ display: "block", marginTop: ".25rem" }}>
+                Cores disponíveis
+              </small>
+              <nav className="colors">
+                {swatches.map((s) => (
+                  <button
+                    key={s.key}
+                    className="swatch"
+                    onClick={() => handleColorClick(s)}
+                    aria-label={`Cor ${s.key}`}
+                    style={{
+                      background: s.color,
+                      border: s.color === selectedColor ? "3px solid #d4af37" : "2px solid rgba(0,0,0,0.06)",
+                    }}
+                  />
+                ))}
+              </nav>
+            </>
+          )}
           <section className="descricao">
             <h4>Descrição</h4>
-            <p>{currentDescription}</p>
+            <p>{currentItem.description}</p>
             <button
               className={`add-to-cart-btn ${isAdded ? "added" : ""}`}
               onClick={handleAddToCart}

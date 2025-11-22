@@ -34,10 +34,9 @@ const produtosLabios = [
     id: 4,
     imagem: BatomRoxo,
     elipse: ElipseLilas,
-    nome: "Batom Líquido Roxo",
+    nome: "Batom Matte Roxo",
     preco: "R$ 39,90",
-    descricao:
-      "Atreva-se a ser inesquecível com um roxo intenso e impactante. Com fórmula líquida de secagem rápida que não transfere, é ideal para looks noturnos e ousados.",
+    descricao: "Atreva-se a ser inesquecível com um roxo intenso e impactante. Com fórmula líquida de secagem rápida que não transfere, é ideal para looks noturnos e ousados.",
   },
   {
     id: 5,

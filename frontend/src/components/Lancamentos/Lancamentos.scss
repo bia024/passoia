@@ -144,6 +144,19 @@
             font-weight: 700;
         }
 
+        .price {
+            margin: 0.5rem 0;
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+
+            .current-price {
+                font-size: 1.75rem;
+                font-weight: 700;
+                color: #333;
+            }
+        }
+
         .colors {
             display: flex;
             gap: 0.75rem;
