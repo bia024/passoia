@@ -1,102 +1,82 @@
-import React, { useState, useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import "./Blackfriday.scss";
 import { useCart } from "../context/CartContext.jsx";
+import Countdown from "../components/Countdown/Countdown.jsx";
 import OleoCapilar from "../assets/oleo-capilar.jpg";
 import BatomVermelho from "../assets/batomVermelho.png";
 import BaseInfallible from "../assets/base-infaillible.avif";
+import ImgBanner from "../components/Banner/NovidadesMake.jpg";
 import MascaraCilios from "../assets/mascara-cilios.jpg";
 
-const produtosEmOferta = [
+const produtosBlackFriday = [
   {
     id: 20,
     imagem: OleoCapilar,
     nome: "Óleo Capilar Elseve Extraordinário",
-    precoOriginal: "R$ 31,48",
-    precoBlackFriday: "R$ 22,99",
+    precoAntigo: 31.48,
+    precoNovo: 22.99,
   },
   {
     id: 2,
     imagem: BatomVermelho,
     nome: "Batom Matte Vermelho",
-    precoOriginal: "R$ 35,90",
-    precoBlackFriday: "R$ 24,90",
+    precoAntigo: 35.9,
+    precoNovo: 24.9,
   },
   {
     id: 10,
     imagem: BaseInfallible,
     nome: "Base Infallible 24h Fresh Wear",
-    precoOriginal: "R$ 99,90",
-    precoBlackFriday: "R$ 69,90",
+    precoAntigo: 99.9,
+    precoNovo: 69.9,
   },
   {
     id: 6,
     imagem: MascaraCilios,
     nome: "Máscara para Cílios Loreal Duo",
-    precoOriginal: "R$ 89,90",
-    precoBlackFriday: "R$ 59,90",
+    precoAntigo: 89.9,
+    precoNovo: 59.9,
   },
 ];
 
-const CountdownTimer = () => {
-  const calculateTimeLeft = () => {
-    const difference = +new Date("2025-11-29T23:59:59") - +new Date();
-    let timeLeft = {};
-
-    if (difference > 0) {
-      timeLeft = {
-        Dias: Math.floor(difference / (1000 * 60 * 60 * 24)),
-        Horas: Math.floor((difference / (1000 * 60 * 60)) % 24),
-        Minutos: Math.floor((difference / 1000 / 60) % 60),
-        Segundos: Math.floor((difference / 1000) % 60),
-      };
-    }
-    return timeLeft;
-  };
-
-  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
-
-  useEffect(() => {
-    const timer = setInterval(() => setTimeLeft(calculateTimeLeft()), 1000);
-    return () => clearInterval(timer);
-  }, []);
-
-  return (
-    <div className="countdown-timer">
-      {Object.entries(timeLeft).map(([interval, value]) => (
-        <div key={interval} className="time-segment">
-          <span className="time-value">{value}</span>
-          <span className="time-interval">{interval}</span>
-        </div>
-      ))}
-    </div>
-  );
-};
-
-export default function BlackFriday() {
+export default function Blackfriday() {
   const { addToCart } = useCart();
+  const blackFridayEndDate = new Date(new Date().getFullYear(), 10, 30);
 
   return (
-    <main className="blackfriday-container">
-      <header className="bf-header">
+    <main className="black-friday-page">
+      <Helmet>
+        <title>Black Friday Passoia - Ofertas Imperdíveis!</title>
+      </Helmet>
+      <header
+        className="bf-header"
+        style={{ backgroundImage: `url(${ImgBanner})` }}
+      >
         <h1>🔥 Black Friday L'Oréal 🔥</h1>
         <p>Aproveite descontos exclusivos antes que acabem!</p>
       </header>
-      <CountdownTimer />
+      <Countdown targetDate={blackFridayEndDate} />
 
-      <section className="products-grid-bf">
-        {produtosEmOferta.map((produto) => (
-          <article key={produto.id} className="product-card-bf">
+      <section className="bf-produtos-container">
+        {produtosBlackFriday.map((produto) => (
+          <article key={produto.id} className="bf-produto-card">
             <span className="sale-badge">OFERTA</span>
-            <img src={produto.imagem} alt={produto.nome} className="product-img" />
+            <figure>
+              <img src={produto.imagem} alt={produto.nome} />
+            </figure>
             <h3>{produto.nome}</h3>
-            <div className="price-container">
-              <p className="original-price">{produto.precoOriginal}</p>
-              <p className="sale-price">{produto.precoBlackFriday}</p>
+            <div className="price-box">
+              <span className="preco-antigo">
+                R$ {produto.precoAntigo.toFixed(2)}
+              </span>
+              <span className="preco-novo">
+                R$ {produto.precoNovo.toFixed(2)}
+              </span>
             </div>
             <button
               className="btn-add-cart"
               onClick={() =>
-                addToCart({ ...produto, preco: produto.precoBlackFriday })
+                addToCart({ ...produto, preco: produto.precoNovo })
               }
             >
               Adicionar ao Carrinho

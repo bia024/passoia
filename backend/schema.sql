@@ -1,0 +1,8 @@
+CREATE TABLE cupons (
+    id SERIAL PRIMARY KEY,
+    codigo VARCHAR(255) UNIQUE NOT NULL,
+    usuario_nome VARCHAR(255) NOT NULL,
+    usuario_email VARCHAR(255) NOT NULL,
+    utilizado BOOLEAN DEFAULT FALSE,
+    data_criacao TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);

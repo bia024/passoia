@@ -4,6 +4,7 @@
   flex-direction: column;
   align-items: center;
   margin: 2.5rem 0;
+  position: relative;
 
   h2 {
     font-size: 2rem;
@@ -12,17 +13,88 @@
     margin-bottom: 1.875rem;
     color: #333;
     text-align: center;
+    z-index: 2;
   }
 
-  .novidades-img {
+  .banner-fundo {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.15;
+    z-index: 1;
+  }
+
+  .produtos-container {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
     width: 95%;
     max-width: 81.25rem;
+    z-index: 2;
+  }
+
+  .produto-card {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    width: 15rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .produto-imagem-container {
+    height: 12rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 1rem;
 
     img {
       width: 100%;
-      border-radius: 0.25rem;
-      display: block;
+      height: 100%;
       object-fit: cover;
+      border-radius: 4px;
+    }
+  }
+
+  .produto-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    flex-grow: 1;
+  }
+
+  .produto-preco {
+    color: #b8860b;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .btn-add-cart {
+    display: inline-block;
+    padding: 0.7rem 1rem;
+    background: #111;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: #d4af37;
+      color: #000;
     }
   }
 }

@@ -11,6 +11,7 @@ import Rosto from "./components/Rosto/Rosto.jsx";
 import Tendencia from "./components/Tendencia/Tendencia.jsx";
 import Lancamentos from "./components/Lancamentos/Lancamentos.jsx";
 import Novidades from "./components/Novidades/Novidades.jsx";
+import AdminPage from "./pages/Admin/AdminPage";
 import Blackfriday from "./pages/Blackfriday.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 import Cadastro from "./pages/Cadastro/Cadastro.jsx";
@@ -53,6 +54,7 @@ export default function App() {
           <Route path="/rosto" element={<Rosto />} />
           <Route path="/tendencia" element={<Tendencia />} />
           <Route path="/novidades" element={<Novidades />} />
+          <Route path="/admin" element={<AdminPage />} />
           <Route path="/blackfriday" element={<Blackfriday />} />
           <Route path="/cadastro" element={<Cadastro />} />
           <Route path="/login" element={<Login />} />
