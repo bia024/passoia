@@ -9,7 +9,7 @@ generator client {
 
 model User {
   id          Int      @id @default(autoincrement())
-  tipo        String   // consumidor | panelista | parceiro | admin
+  tipo        String
   nome        String?
   cpf         String?  @unique
   nomeEmpresa String?
@@ -23,8 +23,7 @@ model User {
   cidade      String?
   estado      String?
   createdAt   DateTime @default(now())
-
-  Wishlist WishlistItem[]
+  Wishlist    WishlistItem[]
 }
 
 model Produto {
@@ -33,19 +32,16 @@ model Produto {
   descricao  String?
   preco      Float
   estoque    Int      @default(0)
-  imagemUrl  String?
+  imagemUrl  String? 
   criadoEm   DateTime @default(now())
-
-  Wishlist WishlistItem[]
+  Wishlist   WishlistItem[]
 }
 
 model WishlistItem {
   userId    Int
   produtoId Int
   addedAt   DateTime @default(now())
-
-  user    User    @relation(fields: [userId], references: [id])
-  produto Produto @relation(fields: [produtoId], references: [id])
-
+  user      User    @relation(fields: [userId], references: [id])
+  produto   Produto @relation(fields: [produtoId], references: [id])
   @@id([userId, produtoId])
 }
