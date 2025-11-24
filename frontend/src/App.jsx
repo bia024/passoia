@@ -11,7 +11,7 @@ import Rosto from "./components/Rosto/Rosto.jsx";
 import Tendencia from "./components/Tendencia/Tendencia.jsx";
 import Lancamentos from "./components/Lancamentos/Lancamentos.jsx";
 import Novidades from "./components/Novidades/Novidades.jsx";
-import AdminPage from "./pages/Admin/AdminPage";
+import AdminPage from "./pages/admin/AdminPage.jsx";
 import Blackfriday from "./pages/Blackfriday.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 import Cadastro from "./pages/Cadastro/Cadastro.jsx";
