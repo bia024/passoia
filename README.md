@@ -204,6 +204,7 @@ Código limpo e escalável, seguindo boas práticas
 🧑‍💻 Autor(a)
 
 Projeto desenvolvido por Bianca Caetano, software engineer focada em arquitetura, acessibilidade e criação de experiências digitais modernas.
+
 ---
 
 📄 Licença
